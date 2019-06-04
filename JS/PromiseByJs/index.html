@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="./promise.js"></script>
+  <script>
+    var a = 0;
+    new Nya(function (resolve, reject) {
+      try {
+        setTimeout(() => {
+          a = 1;
+          reject(a);
+        }, 1000);
+      } catch (err) {
+        reject(err)
+      }
+    }).catch((e)=>{
+      console.log(e,a)
+    });
+    new Promise(function (resolve, reject) {
+      try {
+        setTimeout(() => {
+          a = 1;
+          reject(a);
+        }, 1000);
+      } catch (err) {
+        reject(err)
+      }
+    }).catch((e)=>{
+      console.log(e,a)
+    })
+  </script>
+</body>
+
+</html>

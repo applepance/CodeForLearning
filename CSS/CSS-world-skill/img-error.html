@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        position: relative;
+    }
+
+    img:after {
+        /* 表达式 获取任意的属性信息 */
+        content: attr(alt);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(0,0,0,0.5);
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    img:hover::after {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="./a.png" alt="图片">
+    </div>
+</body>
+
+</html>

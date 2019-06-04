@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="userinfo">
+    <button size='mini' open-type='getUserInfo' wx:if="{{!hasUserInfo}}" bindgetuserinfo='getUserInfo'>登录</button>
+    <block wx:else>
+      <image class='userinfo-avatar' src='{{userInfo.avatarUrl}}'></image>
+      <text class='userinfo-nickname'>{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class='titleBar'>
+    <view class='status'>
+      <text class='{{status == "1"?"active":""}}' data-status='1' bindtap='showStatus'>全部</text>
+      <text class='{{status == "2"?"active":""}}' data-status='2' bindtap='showStatus'>未完成</text>
+      <text class='{{status == "3"?"active":""}}' data-status='3' bindtap='showStatus'>已完成</text>
+    </view>
+    <view class='add'>
+      <button class='mini-btn' size='mini' type='warn' bindtap='addTodoShow'>添加</button>
+    </view>
+  </view>
+  <view class='addForm {{isAddTodo?"":"hide"}}'>
+    <view class='addForm-div'>
+      <input type='text' class='weui-input' placeholder='请输入todo' value='{{addText}}' bindinput='setInput' focus='{{focus}}'/>
+      <view class='addForm-btn'>
+        <button class='weui-btn mini-btn' bindtap='addTodo' size='mini' type='warn'>确定</button>
+        <button class='weui-btn mini-btn' bindtap='addTodoHide' size='mini' type='default'>取消</button>
+      </view>
+    </view>
+  </view>
+</view>

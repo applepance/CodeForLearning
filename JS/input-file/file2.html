@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        input[type='file'] {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .list-group {
+            border: 1px dashed #ddd;
+            height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- MIME 类型 -->
+    <!-- text/html -->
+    <div class="container">
+        <ul class="list-group">
+            拖放文件到这里
+        </ul>
+        <div class="row" id="imgContent">
+
+        </div>
+    </div>
+    <form action="" name="upload">
+        <input type="file" name="fileSelector">
+        <input type="button" class="btn btn-primary" name="fileSelectBtn" value="上传文件">
+    </form>
+    <div>
+        <div class="progress">
+            <div id="progress" class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div>
+    <script>
+        const uploadForm = document.forms['upload']['fileSelector'];
+        const fileSelectBtn = document.forms['upload']['fileSelectBtn'];
+        const listGroup = document.querySelector('.list-group');
+
+        uploadForm.addEventListener('change', displayFileInfo);
+        fileSelectBtn.addEventListener('click', function () {
+            uploadForm.click();
+        });
+
+        listGroup.addEventListener('dragover', function (event) {
+            event.preventDefault();
+        });
+        listGroup.addEventListener('drop', displayFileInfo);
+
+        function displayFileInfo(event) {
+            event.preventDefault();
+            const files = event.target.files || event.dataTransfer.files;
+            let reader = new FileReader();
+            for (let file of files) {
+                reader.readAsDataURL(file);
+                reader.onprogress = function (event) {
+                    const progress = document.getElementById('progress');
+                    const percent = Math.round(event.loaded / event.total *100);
+                    progress.style.width = `${percent}%`;
+                }
+                reader.onload = function (event) {
+                    const colDiv = document.createElement('div');
+                    colDiv.classList.add('col-md-3');
+                    const img = document.createElement('img');
+                    // 
+                    img.src = event.target.result;
+                    // 
+                    colDiv.appendChild(img);
+                    document.querySelector('.row')
+                        .appendChild(colDiv);
+                };
+            }
+        }
+    </script>
+</body>
+
+</html>

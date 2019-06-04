@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.bootcss.com/weui/1.1.3/style/weui.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>商城</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="page tabbar js_show">
+            <div class="page__bd">
+                <div class="weui-tab">
+                    <div class="weui-tab__panel tab show">
+                        1
+                    </div>
+                    <div class="weui-tab__panel tab">
+                        2
+                    </div>
+                    <div class="weui-tab__panel tab">
+                        <div class="mine-title">我的</div>
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                                <img src="images/avatar.jpg" style="width: 50px;display: block">
+                            </div>
+                            <div class="weui-cell__bd">
+                                <p>联系人名称</p>
+                                <p style="font-size: 13px;color: #888888;">摘要信息</p>
+                            </div>
+                        </div>
+                        <div class="weui-cells">
+                            <a class="weui-cell weui-cell_access" href="javascript:;">
+                                <div class="weui-cell__hd"><img src="./images/baomihua.png" alt=""
+                                        style="width:20px;margin-right:5px;display:block"></div>
+                                <div class="weui-cell__bd weui-cell_primary">
+                                    <p>文字标题</p>
+                                </div>
+                                <span class="weui-cell__ft"></span>
+                            </a>
+                            <a class="weui-cell weui-cell_access" href="javascript:;">
+                                <div class="weui-cell__hd"><img src="./images/lingdang.png" alt=""
+                                        style="width:20px;margin-right:5px;display:block"></div>
+                                <div class="weui-cell__bd weui-cell_primary">
+                                    <p>文字标题</p>
+                                </div>
+                                <span class="weui-cell__ft"></span>
+                            </a>
+                        </div>
+
+                        <div class="weui-cells　top2">
+                            <a class="weui-cell weui-cell_access" href="javascript:;">
+                                <div class="weui-cell__hd"><img src="./images/baomihua.png" alt=""
+                                        style="width:20px;margin-right:5px;display:block"></div>
+                                <div class="weui-cell__bd weui-cell_primary">
+                                    <p>文字标题</p>
+                                </div>
+                                <span class="weui-cell__ft"></span>
+                            </a>
+                            <a class="weui-cell weui-cell_access" href="javascript:;">
+                                <div class="weui-cell__hd"><img src="./images/lingdang.png" alt=""
+                                        style="width:20px;margin-right:5px;display:block"></div>
+                                <div class="weui-cell__bd weui-cell_primary">
+                                    <p>文字标题</p>
+                                </div>
+                                <span class="weui-cell__ft"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="weui-tabbar">
+                        <a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
+                            <span style="display: inline-block;position: relative;">
+                                <img src="./images/kafei.png" alt="" class="weui-tabbar__icon">
+                                <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
+                            </span>
+                            <p class="weui-tabbar__label">商城</p>
+                        </a>
+                        <a href="javascript:;" class="weui-tabbar__item">
+                            <img src="./images/luonan.png" alt="" class="weui-tabbar__icon">
+                            <p class="weui-tabbar__label">购物车</p>
+                        </a>
+                        <a href="javascript:;" class="weui-tabbar__item">
+                            <span style="display: inline-block;position: relative;">
+                                <img src="./images/shuiguo.png" alt="" class="weui-tabbar__icon">
+                                <span class="weui-badge weui-badge_dot"
+                                    style="position: absolute;top: 0;right: -6px;"></span>
+                            </span>
+                            <p class="weui-tabbar__label">我的</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const choose = document.querySelectorAll('.weui-tabbar__item')
+        const tabs = document.querySelectorAll('.weui-tab__panel')
+        // console.log(choose)
+        for (let i = 0; i < choose.length; i++) {
+            choose[i].addEventListener('click', function () {
+                // for (let j of choose) {
+                //   j.classList.remove('weui-bar__item_on')
+                // }
+                // this.classList.add('weui-bar__item_on')
+                // 切换屏幕
+                showTab.call(this)
+            })
+        }
+
+        function showTab() {
+            console.log(this)
+            for (let j = 0; j < tabs.length; j++) {
+                if (choose[j] === this) {
+                    choose[j].classList.add('weui-bar__item_on')
+                    tabs[j].classList.add('show')
+                } else {
+                    tabs[j].classList.remove('show')
+                    choose[j].classList.remove('weui-bar__item_on')
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

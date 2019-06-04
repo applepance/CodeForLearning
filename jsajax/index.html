@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var yjr = null;
+        if (window.XMLHttpRequest) {
+            yjr = new XMLHttpRequest();
+        } else {
+            yjr = new ActiveXObject("Microsoft.XMLHttp");
+        }
+        yjr.open("get", "./mock.json", true);//false->同步
+        yjr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        yjr.send();
+        // console.log(yjr.responseText);
+        // console.log(yjr.readyState,yjr.status);
+        var p = new Promise((resolve, reject) => {
+            yjr.onreadystatechange = function () {
+                if (yjr.readyState == 4 && yjr.status == 200) {
+                    console.log(yjr.responseText);
+                    resolve(yjr.responseText);
+                }
+            }
+        })
+        // yjr.onreadystatechange = function() {
+        //     if(yjr.readyState == 4 && yjr.status == 200) {
+        //         console.log(yjr.responseText);
+        //     }
+        // }
+        function xq(responseText) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log(responseText);
+                    console.log("猛哥相亲了！");
+                    resolve("相亲很顺利");
+                }, 100)
+            })
+        }
+        function marry(e) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log("猛哥结婚了！");
+                    console.log(e);
+                    resolve("结婚很顺利");
+                }, 1000)
+            })
+        }
+        // p
+        //     .then(xq)
+        //     .then(marry)
+        //     .catch(()=>{
+        //         console.log("失败");
+        //     })
+        Promise.all([p,xq(p)]).then(marry);
+        // Promise.race([p,xq(),marry()]).then(val=>{console.log(val);})
+    </script>
+</body>
+
+</html>

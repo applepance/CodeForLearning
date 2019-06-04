@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-size: .75rem;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.view {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+
+.view.scenarios {
+    background-color: #bf8553;
+    overflow: hidden;
+}
+
+/* 页面顶部 title 容器 */
+
+.view-title-c {
+    position: relative;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    padding-left: .625rem;
+}
+
+/* 白色| */
+
+.view-title-pre {
+    width: 0.15625rem;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-color: #fff;
+    animation: lineIn .5s linear forwards;
+}
+
+@keyframes lineIn {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.view-title-i {
+    opacity: 0;
+    animation: titleIn .25s 0s linear forwards;
+}
+
+@keyframes titleIn {
+    0% {
+        transform: translate(6rem, 0);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+.view-title {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 700;
+}
+
+.view-title-desc {
+    color: #fbf7f4;
+}
+
+/* work part1 */
+
+.scenario-bg {
+    position: absolute;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.scenario.work .scenario-bg {
+    background-image: url(http://s1.map.bdimg.com/zt/y2015/waimaibear/mobile/images/bg1_af877d1.png);
+    width: 18rem;
+    height: 17.90625rem;
+    left: 1.375rem;
+    bottom: 7.875rem;
+    animation: rotatein 3s 0s ease-in-out forwards;
+    transform-origin: 8.625rem 38.71825rem;
+}
+@keyframes rotatein {
+    0% {
+        transform: rotateZ(90deg);
+        opacity: 0;
+    }
+    19.2% {
+        transform: rotateZ(-4deg);
+        opacity: 1;
+    }
+    25.1% {
+        transform: rotateZ(2deg);
+        opacity: 1;
+    }
+    32% {
+        transform: rotateZ(0);
+        opacity: 1;
+    }
+    68% {
+        transform: rotateZ(0);
+        opacity: 1;
+    }
+    74.4% {
+        transform: rotateZ(2deg);
+        opacity: 1;
+    }
+    100% {
+        transform: rotateZ(-90deg);
+        opacity: 0;
+    }
+}
+
+.work-man-c {
+    width: 13.71875rem;
+    height: 10.90625rem;
+    position: absolute;
+    left: 3.140625rem;
+    bottom: 9.0625rem;
+    animation: rotatein 3s .2s ease-in-out forwards;
+    transform-origin: 6.859375rem 32.90625rem;
+    opacity: 0;
+}
+
+.work-man {
+    background-image: url(http://s1.map.bdimg.com/zt/y2015/waimaibear/mobile/images/front1_d69ae31.png);
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}

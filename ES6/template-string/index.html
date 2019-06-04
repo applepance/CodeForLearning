@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模版字符串</title>
+</head>
+<body>
+<script>
+    function renderKeyword() {
+        return `<li>sing</li>
+                <li>game</li>`;
+    }
+    const name = '马冬梅';
+    const age = 18;
+    // const str = '我叫'+name+'，我有'+age+'岁；';
+    const str = `我叫${name}，我\`有${age}岁；${1+1},${renderKeyword()}`;
+</script>
+</body>
+</html>

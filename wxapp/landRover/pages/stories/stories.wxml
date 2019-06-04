@@ -1,0 +1,21 @@
+<!--pages/stories/index.wxml-->
+<view class="cards">
+  <view class="card" wx:for="{{ entities }}" wx:key="id">
+    <video src="{{ item.video }}" hidden="{{ currentVid !== item.id }}" id="{{ item.id }}" poster="{{ item.image }}" duration="{{ item.duration_raw }}" object-fit="cover"></video>
+    <image bindtap="handleVideoPlay" hidden="{{ currentVid == item.id }}" data-vid="{{ item.id }}" src="{{ item.image}}" mode="aspectFill">
+      <view class="label">
+        {{ item.duration }}
+      </view>
+    </image>
+    <navigator url="/pages/show/index?id={{ item.id }}">
+      <view class="content">
+        <view class="header border">
+          {{ item.header }}
+        </view>
+        <view class="description">{{ item.description }}</view>
+        <view class="meta">{{ item.meta.price }}</view>
+      </view>
+    </navigator>
+
+  </view>
+</view>

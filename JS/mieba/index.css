@@ -1,0 +1,91 @@
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+.main {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.main .gauntlet {
+  height: 100px;
+}
+
+.main .gauntlet-item {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.main #gauntlet-snap {
+  background: transparent url(https://yiliang114.github.io/vue-thanos-snap/images/thanos_snap.png) center left no-repeat;
+  background-position: 0 0;
+}
+
+.main #gauntlet-reverse {
+  background: transparent url('https://yiliang114.github.io/vue-thanos-snap/images/thanos_reverse.png') center left no-repeat;
+  background-position: 0 0;
+}
+
+.snaping {
+  -webkit-animation: gauntlet 2.8s steps(47) both;
+  animation: gauntlet 2.8s steps(47) both;
+}
+.reversing{
+  -webkit-animation: gauntlet 2.8s steps(47) both;
+  animation: gauntlet 2.8s steps(47) both;
+}
+@keyframes gauntlet {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -3760px 0;
+  }
+}
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+.content .item {
+  flex: 1;
+  height: 260px;
+  margin: 10px;
+  border: 1px solid #CECECE;
+  text-align: center;
+  box-sizing: border-box;
+}
+.content .item .avatar img {
+  width: 200px;
+  height: 200px;
+}
+.content .item .info {
+  height: 30px;
+  line-height: 30px;
+}
+.content .time {
+-webkit-animation: heroBack 2s linear;
+animation: heroBack 2s linear;
+}
+
+.dust-container {
+position: absolute;
+pointer-events: none;
+}
+
+.dust-container canvas {
+position: absolute;
+left: 0;
+top: 0;
+transition: transform 1s ease-out, opacity 1s ease-out;
+opacity: 1;
+transform: rotate(0deg) translate(0px, 0px) rotate(0deg);
+}

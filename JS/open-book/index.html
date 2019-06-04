@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            vertical-align: baseline;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            overflow: hidden;
+            font: 100%/1.25 Helvetica, Arial, sans-serif;
+            color: #fff;
+            perspective: 1000px;
+            background-color: #444;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#444), to(#999));
+            background-image: -webkit-linear-gradient(top, #444, #999);
+            background-image: -moz-linear-gradient(top, #444, #999);
+            background-image: -ms-linear-gradient(top, #444, #999);
+            background-image: -o-linear-gradient(top, #444, #999);
+            background-image: linear-gradient(top, #444, #999);
+        }
+
+        .book {
+            width: 300px;
+            height: 300px;
+            margin-top: -150px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: rotateX(60deg);
+            -webkit-transform: rotateX(60deg);
+            -ms-transform: rotateX(60deg);
+            -o-transform: rotateX(60deg);
+            -moz-transform: rotateX(60deg);
+            /*加兼容*/
+            user-select: none;
+            -o-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .page {
+            width: 300px;
+            height: 300px;
+            padding: 1em;
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-indent: 2em;
+            /* 文字缩进 */
+        }
+
+        .front {
+            background-color: lightpink;
+            overflow: hidden;
+        }
+
+        .back {
+            background-color: lightpink;
+        }
+
+        .front-cover {
+            cursor: move;
+            transform-origin: 0 50%;
+            transform: rotateY(0deg);
+        }
+
+        .front-cover .back {
+            background-image: url(https://wx1.sinaimg.cn/mw690/7a4c62b3gy1g1k94e0ek5j206107874o.jpg);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            transform: rotateZ(3px);
+        }
+
+        .p3d {
+            transform-style: preserve-3d;
+        }
+
+        .flip {
+            transform: rotateY(180deg);
+        }
+
+        .dino,
+        .shadow {
+            width: 196px;
+            height: 132px;
+            position: absolute;
+            left: 60px;
+            top: 60px;
+            transform-origin: 0 100%;
+        }
+
+        .dino {
+            background: url(https://wx1.sinaimg.cn/mw690/7a4c62b3gy1g1k94e0ek5j206107874o.jpg);
+            background-size: cover;
+        }
+
+        .shadow {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="book p3d">
+        <div class="book-cover p3d">
+            <div class="page back flip"></div>
+            <div class="page-front p3d">
+                <div class="shadow"></div>
+                <div class="dino"></div>
+            </div>
+        </div>
+        <div class="front-cover p3d">
+            <div class="page front flip p3d">
+                <p>【为什么说《只狼》应该尊重他的玩家，并为游戏加入简单模式？】
+
+                    《福布斯》的作者 Dave Thier 在今天发表了一篇文章，阐述了它对于本作的看法，并再次强调说 FromSoftware 应该给它的游戏加入简单模式。
+
+                    Dave 首先表达了对《只狼》以及 FromSoftware 作品的喜爱。
+                    用他的说法，天底下高难度的游戏多了去，有很多他都不会碰，而如果不是因为喜欢《只狼》，自己也根本不会为它写一个字。因为对他来说，FromSoftware
+                    的作品魅力不仅仅在于它的高难度挑战，它的世界塑造，人物设计，美术设计，场景设计都非常优秀。尤其是那片段的叙事方式，还引发了很多作品跟风。
+
+                    但 Dave 认为其中的问题在于，上面这些优秀的内容，很多玩家可能根本看不到。
+
+                    他们可能没有足够的游戏时间，可能不想每个 Boss
+                    都死100次才能通过，可能不想每次回家玩游戏都玩到抓狂然后第二天继续抓狂，更夸张一点，甚至可能有生理缺陷导致他们的反应速度就是达不到游戏的要求。只要在时间，反应，速度，判断，任意方面差一点，这些人除非看视频否则大概率永远见不着最终
+                    Boss。
+
+                    而一个简单模式，则可以让这些玩家推进游戏，感受 FromSoftware 游戏的魅力，同时让其他愿意受苦的玩家继续受苦。
+
+                    Dave 说在《黑暗之魂》《血源诅咒》中玩家可以通过召唤的方式找其他人帮忙打
+                    Boss，这可以算是一种降低游戏难度的方式。而《只狼》甚至连这一点也取消了，你要是因为各种原因打不过，有可能就真的永远打不过了。Dave
+                    自己虽然可以在不使用忍义手的情况下击败赤鬼，但他自己也没把握游戏全程都如此顺利，而他不想面对同一个 Boss 抓狂一整个星期。
+
+                    有的人说，不加入简单模式是游戏“尊重玩家”表现，Dave 认为恰恰相反，《只狼》没有简单模式反而是“不尊重自己的玩家”。
+
+                    他认为因为 FromSoftware 觉得提供了简单难度，那么这些玩家就背弃游戏的正常体验，这是他们对自己粉丝和玩家的不自信以及不尊重。而 Dave 觉得那些真正喜欢挑战，喜欢
+                    FromSoftware 式游戏体验的玩家，不会因为游戏提供了一个低难度模式的选项，就放弃自己的追求，因为这些人知道自己想要的是什么。
+
+                    Dave 认为召唤系统就是一个很好的例子，他自己玩《血源诅咒》的时候从来没有召唤好友帮助击杀 Boss，因为他知道自己想追求的体验；而在《黑暗之魂3》中，他想玩的更轻松一些，所以会偶尔用一下。
+
+                    Dave
+                    还以另一个高难度游戏《蔚蓝山》作为例子，游戏因为其高难度吸引了很多玩家挑战，但同样提供了“辅助模式”让所有手残的玩家也能感受游戏的乐趣。它破坏了游戏原本的魅力吗？并没有，因为不同的玩家们知道自己追求的是什么，只要你自己玩的开心就行。
+
+                    因此 Dave 非常不理解许多 FromSoftware 粉丝们一再强调为什么简单难度会破坏游戏体验，以及小部分玩家喜欢用这些游戏来证明自己是一个真·玩者，而其他人则是不入流的休闲玩家。
+
+                    在最后，Dave 向所有 FromSoftware 的粉丝表示，你们应该相信自己，相信自己为什么喜欢《只狼》以及之前 FromSoftware
+                    的游戏，相信自己可以用自己喜欢的方式去通关这款作品，并且让其他人也可以选择用自己喜欢的方式通关。一个简单难度真的不用，也不会搞的很复杂，只需要稍微调整一下敌我双方的伤害就完事了。
+
+                    你们对 Dave 的观点又是怎么看的呢？《只狼》是不是应该加入一个既能满足普通玩家通关，又不影响粉丝们追求挑战的模式呢？</p>
+            </div>
+            <div class="page back"></div>
+        </div>
+    </div>
+    <script>
+    (function(window,document){
+        var prefixes = ['webkit','Moz','ms','o',''],
+            book = document.querySelectorAll('.book')[0],
+            page = document.querySelectorAll('.front-cover')[0]
+            dino = document.querySelectorAll('.dino')[0],
+            shadow = document.querySelectorAll('.shadow')[0],
+            hold = false,
+            centerPoint = window.innerWidth / 2,
+            startX = centerPoint,
+            pageSize = 300,
+            clamp = function(val, min, max){
+                return Math.max(min, Math.min(val,max));
+            };
+            // 按下鼠标时候执行的事件
+      page.onmousedown = function (evt) {
+        hold = true;
+        startX = evt.pageX;
+      };
+      // 放开鼠标的时候执行的事件
+      window.onmouseup = function () {
+        if (hold) {
+          hold = false
+        }
+      };
+      // 在窗口被调整大小时候执行的事件
+      window.onresize = function () {
+        // console.log(window.innerWidth)
+        centerPoint = window.innerWidth / 2;
+      };
+      // 鼠标移动时候执行的事件
+      window.onmousemove = function (even) {
+        if (!hold) {
+          return;
+        }
+        console.log(startX - even.pageX);
+        
+        var angle = clamp(((startX - even.pageX)) / pageSize * -90, -180, 0),
+            i,j;
+
+        for (i = 0, j = prefixes.length; i < j; i++) {
+          if(angle===0){
+            shadow.style.visibility= 'hidden';
+          }
+          else{ shadow.style.visibility= 'visible'; }
+          book.style[prefixes[i] + 'Transform'] = 'rotateX(' + (60 + angle / 8) + 'deg)';
+        //   book.style[prefixes[i] + 'Transform'] = `rotateX(${(60 + angle / 8)}deg)` ; 
+          page.style[prefixes[i] + 'Transform'] = 'rotateY('+ angle +'deg)';
+          dino.style[prefixes[i] + 'Transform'] = 'rotateX('+ (angle / 2) +'deg)';
+          shadow.style[prefixes[i] + 'Transform'] = 'translateZ(1px) skewX('+ (angle / 8) + 'deg)';
+        }
+      }
+    })(window,document)
+    
+    </script>
+</body>
+
+</html>

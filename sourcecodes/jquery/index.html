@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery源码解析 - 源码分析课</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <img src="https://pic.36krcnd.com/201904/09061934/9axl9yt10w5w6kq6!heading" alt="" onload="imgLoaded();">
+    <!-- <script src="https://cdn.bootcss.com/jquery/2.1.2/jquery.min.js"></script> -->
+    <script>
+        //当html,css很大的时候。
+        //html请求->自身，img，jquery.js
+    function imgLoaded() {
+        console.log("图片加载完成");
+    }
+    window.onload = function() {
+        console.log("页面加载完成");
+    }
+    // document.addEventListener('DOMContentLoaded',function() {
+    //     console.log("DOM ready");
+    //     // js开始的地方
+    // });
+
+    // jQuery的爱 API简约 更好的兼容性
+    // DOMContentLoaded事件在IE中有兼容性问题
+    function jQueryEle(ele) {
+        this.ele = ele;
+    }
+    jQueryEle.prototype.html = function(str) {
+        this.ele.innerHTML=str;
+    }
+    function $(selector) {
+        if(typeof selector === 'function'){
+            document.addEventListener('DOMContentLoaded',selector);
+        }else if (typeof selector === 'string') {
+            // 放弃继承
+            // html方法来自于节点对象
+            // 2. $函数运行有返回值，是一个对象
+            const ele = document.querySelector(selector);
+            if(ele){
+                return new jQueryEle(ele);
+            }
+            // const ele = new jQueryEle(ele);
+            // return ele;
+        }
+    }
+
+    $(function() {
+        console.log('DOM READY');
+        $('#root').html('<p>我要去云南，我要去缅甸</p>')
+    })
+    </script>
+</body>
+</html>

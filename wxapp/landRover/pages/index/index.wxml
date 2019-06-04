@@ -1,0 +1,26 @@
+<swiper class='section hero white' indicator-dots='true'>
+  <block wx:for="{{slides}}">
+    <swiper-item>
+      <image src="{{item.image}}" mode='aspectFill'></image>
+      <view class='content center'>
+        <view class='sub-header'>
+          {{item.sub_header}}
+        </view>
+        <view class='header'>
+          {{item.header}}
+        </view>
+        <view class='description'>
+          {{item.description}}
+        </view>
+        <view class='action'>
+          <button class='button' bindtap='handleTestDrive'>
+            预约驾驶
+          </button>
+          <button class='button primary' bindtap='handleMoreInfo' data-id="{{item.id}}">
+            了解更多
+          </button>
+        </view>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript"
+        src="http://api.map.baidu.com/api?v=2.0&ak=yPkYY2ObX0S4rGhYwlKpAMcM3xXoYNRP"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            width: 1000px;
+            height: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <!-- <script>
+        var map = new BMap.Map('map');   // 创建Map实例
+        map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+        //添加地图类型控件
+        map.addControl(new BMap.MapTypeControl({
+            mapTypes: [
+                BMAP_NORMAL_MAP,
+                BMAP_HYBRID_MAP
+            ]
+        }));
+        map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
+        map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
+    </script> -->
+    <script>
+        var map = new BMap.Map("map");
+        var point = new BMap.Point(116.331398, 39.897445);
+        map.centerAndZoom(point, 12);
+
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function (r) {
+            if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+                var mk = new BMap.Marker(r.point);
+                map.addOverlay(mk);
+                map.panTo(r.point);
+                // alert('您的位置：' + r.point.lng + ',' + r.point.lat);
+                var myGeo = new BMap.Geocoder();
+                // 根据坐标得到地址描述    
+                myGeo.getLocation(new BMap.Point(r.point.lng, r.point.lat), function (result) {
+                    if (result) {
+                        alert(result.address);
+                    }
+                });
+            }
+            else {
+                alert('failed' + this.getStatus());
+            }
+        });
+
+    </script>
+</body>
+
+</html>

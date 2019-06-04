@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+function Animal(planet) {
+    this.planet = planet;
+}
+Animal.prototype.getPlanet = function() {
+    return this.planet;
+}
+function Person(name) {
+    this.name = name;
+}
+// 继承
+Person.prototype = new Animal('earth');
+Person.prototype.getName = function() {
+    return this.name;
+}
+var person = new Person("杨帅");
+</script>
+</body>
+</html>

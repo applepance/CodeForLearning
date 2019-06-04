@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹性布局——移动端布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .flex-cont {
+            /* height: 100px; */
+            display: flex;
+        }
+
+        .flex-item {
+            flex: 1;
+            background-color: red;
+        }
+
+        .item2 {
+            height: 50px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-cont">
+        <div class="flex-item"></div>
+        <div class="flex-item item2"></div>
+    </div>
+</body>
+
+</html>

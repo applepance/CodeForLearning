@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function getData(names) {
+      // 伪代码
+      // 1. 名字数组变成拼接url数组
+      const promises = names.map(name => fetch(`https://api.github.com/users/${name}`));
+      const people = Promise.all(promises)
+      return people;
+      // 2. fetch 异步的,
+      // 3. promise.all
+      // 4. 返回结果
+    }
+    const people = getData(['applepance', 'chenshiai', 'llinniee']);
+    console.log(people);
+    people
+      .then(data => {
+        // console.log(data);
+        return Promise.all(data.map(item => item.json()))
+      })
+      .then(data => {
+        console.log(data);
+      })
+  </script>
+</body>
+
+</html>

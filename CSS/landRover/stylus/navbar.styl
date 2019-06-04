@@ -1,0 +1,40 @@
+.ui.navbar
+    background-color #fff
+    .content
+        display flex
+        align-items center
+        overflow hidden
+        position relative
+    .header img
+        width 98px
+    .menu-icon
+        display none
+    .menu
+        margin-left 103px
+        .item
+            display inline-block
+            font-size 18px
+            font-weight 300
+            color rgba(0,0,0,1)
+            line-height 25px
+            padding-top 26px
+            padding-bottom 35px
+            &:not(:first-child)
+                margin-left 64px
+    .search-icon
+        flex 1
+        text-align right
+
+@media only screen and (max-width: 767px) 
+    .ui.navbar
+        .content
+            justify-content space-between
+            padding-top 9px
+        .content .menu
+            display none
+        .header img
+            width 56px
+        .menu-icon
+            display block
+        .search-icon
+            flex 0

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // ...
+    // 好比是 rest 参数的逆运算
+    // 将一个数组打散
+    const arr = [18,19,20];
+    console.log(...arr);
+
+    const arr1 = [0,1,2];
+    const arr2 = [3,4,5];
+    const newArr = arr1.concat(arr2);
+
+    const spread_arr = [...arr1,...arr2];
+
+    const [a,...rest_arr] = arr;
+
+    const math_arr = [80,99,70,44,30,76];
+    console.log(Math.max(...math_arr));
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WebGL - 3D 地球</title>
+</head>
+<body>
+    <!-- 画布 webgl 的容器 -->
+    <canvas id="webglcanvas"></canvas>
+    <script src="https://cdn.bootcss.com/three.js/r83/three.min.js"></script>
+    <script>
+    var canvas/* 幕布 */,camera/* 照相机 */,scene/* 场景 */,group,renderer/* 渲染器 */;
+
+    var mouseX = 0,mouseY = 0,windowHalfX = window.innerWidth/2, windowHalfY = window.innerHeight/2;
+
+    // 准备
+    init();
+    animate();
+    function animate() {
+        // API 不停的刷新canvas的静态照片
+        requestAnimationFrame(animate);
+        render();
+    }
+    function render() {
+        camera.position.x += (mouseX - camera.position.x)*0.05;
+        camera.position.y += (-mouseY - camera.position.y)*0.05;
+        camera.lookAt(scene.position);
+        renderer.render(scene, camera);
+        // group.rotation.y -= -0.01;
+    }
+    function init() {
+        canvas = document.getElementById('webglcanvas');
+        // THREE里有着3D的一切
+        camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 1, 2000);
+        camera.position.z = 500;
+
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xffffff);
+
+        group = new THREE.Group();
+        scene.add(group);
+
+        // 地球 形状 + 表面材质
+        var loader = new THREE.TextureLoader();
+        // 待加载完图片才能把它贴到形状上
+        loader.load('land_ocean_ice_cloud_2048.jpg',function(texture){
+            // 形状
+            var geometry = new THREE.SphereGeometry(200,20,20);
+            // 材质
+            var material = new THREE.MeshBasicMaterial({map:texture}); 
+            var mesh = new THREE.Mesh(geometry,material);
+            group.add(mesh);
+        })
+
+        renderer = new THREE.WebGLRenderer({
+            canvas:canvas,
+            antialias: true
+        });
+
+        renderer.setSize(window.innerWidth,window.innerHeight);
+        document.addEventListener('mousemove',onDocumentMouseMove,false);
+        window.addEventListener('resize',onWindowResize,false);
+        
+        function onWindowResize(event) {
+            console.log('resize');
+            windowHalfX = window.innerWidth/2;
+            windowHalfY = window.innerHeight/2;
+            camera.aspect = window.innerWidth/window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth,window.innerHeight);
+        }
+
+        function onDocumentMouseMove(event) {
+            mouseX = (event.clientX - windowHalfX);
+            mouseY = (event.clientY - windowHalfY);
+            console.log(mouseX,mouseY);
+        }
+    }
+    </script>
+</body>
+</html>

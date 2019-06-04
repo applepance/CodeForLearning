@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网易云音乐年度总结</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+    <link rel="shortcut icon" href="//s1.music.126.net/style/favicon.ico">
+    <link rel="stylesheet" href="./index.css">
+
+</head>
+
+<body>
+    <audio src="./bgm.mp3" id="bgm"></audio>
+    <div class="music-btn off"></div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                slide1
+            </div>
+            <div class="swiper-slide">
+                <div class="view special">
+                    <!-- 荡秋千 -->
+                    <div class="art">
+                        <div class="swing">
+                            <div class="leg2">
+                                <div class="jiojio"></div>
+                            </div>
+                            <div class="leg1">
+                                <div class="jiojio"></div>
+                            </div>
+                            <div class="neck"></div>
+                            <div class="head">
+                                <div class="part"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                slide3
+            </div>
+            <div class="swiper-slide page4">
+                <div class="bg f-page"></div>
+                <div class="art j-art14" style="transform: scale(0.5);">
+                    <div class="lines"></div>
+                    <div class="manwrap">
+                        <div class="shoubi"></div>
+                        <div class="man"></div>
+                        <div class="tou"></div>
+                    </div>
+                    <div class="notes"></div>
+                </div>
+
+                <div class="content">
+                    <h4 class="tt para f-animLineUp" style="transition-delay: 0.2s;">
+                        <a style="vertical-align: inherit;">
+                            <a style="vertical-align: inherit;">2018年，这些是TA最爱的歌</a>
+                        </a>
+                    </h4>
+                    <div class="paras">
+                        <p class="para f-animLineUp" style="transition-delay: 0.3s;"><span class="f-trunk">
+                                <a style="vertical-align: inherit;">
+                                    <a style="vertical-align: inherit;">《的页面</a>
+                                </a>
+                            </span></p>
+                        <p class="para f-animLineUp" style="transition-delay: 0.4s;"><span class="f-trunk">
+                                <a style="vertical-align: inherit;">
+                                    <a style="vertical-align: inherit;">《山河令（封忘川风华录）</a>
+                                </a>
+                            </span></p>
+                        <p class="para f-animLineUp" style="transition-delay: 0.5s;"><span class="f-trunk">
+                                <a style="vertical-align: inherit;">
+                                    <a style="vertical-align: inherit;">《千秋月别西楚将</a>
+                                </a>
+                            </span></p>
+                        <p class="para f-animLineUp" style="transition-delay: 0.6s;"><span class="f-trunk">
+                                <a style="vertical-align: inherit;">
+                                    <a style="vertical-align: inherit;">《人振り向いて</a>
+                                </a>
+                            </span></p>
+                        <p class="para f-animLineUp" style="transition-delay: 0.7s;"><span class="f-trunk">
+                                <a style="vertical-align: inherit;">
+                                    <a style="vertical-align: inherit;">《星の器</a>
+                                </a>
+                            </span></p>
+                        <p class="para f-animLineUp" style="transition-delay: 0.8s;"><span class="f-trunk">
+                                <a style="vertical-align: inherit;">
+                                    <a style="vertical-align: inherit;">《50种说再见的方法</a>
+                                </a>
+                            </span></p>
+                        <p class="para f-animLineUp" style="transition-delay: 0.9s;"><span class="f-trunk">
+                                <a style="vertical-align: inherit;">
+                                    <a style="vertical-align: inherit;">《ユキトキ</a>
+                                </a>
+                            </span></p>
+                        <p class="para f-animLineUp" style="transition-delay: 1s;"><span class="f-trunk">
+                                <a style="vertical-align: inherit;">
+                                    <a style="vertical-align: inherit;">《在你旁边</a>
+                                </a>
+                            </span></p>
+                        <p class="para f-animLineUp" style="transition-delay: 1.1s;"><span class="f-trunk">
+                                <a style="vertical-align: inherit;">
+                                    <a style="vertical-align: inherit;">《星间飞行</a>
+                                </a>
+                            </span></p>
+                        <p class="para f-animLineUp" style="transition-delay: 1.2s;"><span class="f-trunk">
+                                <a style="vertical-align: inherit;">
+                                    <a style="vertical-align: inherit;">《再次（YUI声学版）</a>
+                                </a>
+                            </span></p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-slide">
+                slide5
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+    <script>
+        const musicBtn = document.querySelector('.music-btn');
+        const bgm = document.getElementById('bgm');
+        let defautMusicPlay = true;
+        musicBtn.addEventListener('click', () => {
+            if (defautMusicPlay) {
+                bgm.play();
+                // musicBtn.classList.remove('off');
+            }
+            else {
+                bgm.pause();
+                // musicBtn.classList.add('off');
+            }
+            defautMusicPlay = !defautMusicPlay;
+            musicBtn.classList.toggle('off');
+        })
+        const swiper = new Swiper('.swiper-container', {
+            direction: 'vertical',
+        })
+    </script>
+</body>
+
+</html>

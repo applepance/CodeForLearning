@@ -1,0 +1,26 @@
+<!--pages/play/play.wxml-->
+<view class="bg">
+    <view class="body">
+        <view class="sing-brief">
+            <view class="song-name">
+                {{song.name}}
+            </view>
+            <view class="singer-name">
+                <text wx:for="{{song.ar}}">
+                    {{item.name}}
+                </text>
+            </view>
+        </view>
+        <!-- 中间封面 -->
+        <view class="sing-show">
+            <image class="stick" src="../../images/stick.png" />
+            <image class="disk" src="../../images/disk.png" />
+            <image src="{{song.al.picUrl}}" class="coverImage {{isPlay?'play':''}}"/>
+        </view>
+        <view >
+            <button type="primary" bindtap="togglePlay">
+                {{isPlay?'暂停':'播放'}}
+            </button>
+        </view>
+    </view>
+</view>

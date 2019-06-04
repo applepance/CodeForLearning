@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Table DOM API-MDN</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- 挂载点 -->
+    <table id="mountains" class="table"></table>
+    <script>
+        let mountains = [
+            { name: "Monte Falco", height: 1658, place: "Parco Foreste Casentinesi" },
+            { name: "Monte Falterona", height: 1654, place: "Parco Foreste Casentinesi" },
+            { name: "Poggio Scali", height: 1520, place: "Parco Foreste Casentinesi" },
+            { name: "Pratomagno", height: 1592, place: "Parco Foreste Casentinesi" },
+            { name: "Monte Amiata", height: 1738, place: "Siena" }
+        ];
+        // 数据的展示， 数据可视化 cols rows 
+        // table 动态 dom 
+        // 功能, function 
+        // 语句作为; 
+        // 函数作为组织功能的模块化最小单位
+        // 分成几个部分？  
+        // thead  表头
+        // tbody 内容
+        function generateTableHead(table, data) {
+            // 专业的API  MDN
+            let thead = table.createTHead();
+            let row = thead.insertRow();
+            for (let key of data) {
+                let th = document.createElement("th");
+                let text =document.createTextNode(key);
+                th.appendChild(text);
+                row.appendChild(th);
+            }
+
+        }
+        function generateTable(table, data) {
+            // [json] 
+            for (let element of data) {
+                let row = table.insertRow();
+                for (let key in element) {
+                    let cell = row.insertCell();
+                    let text =document.createTextNode(element[key]);
+                    cell.appendChild(text);
+                }
+            }
+        }
+        let table =
+            document.querySelector('#mountains');
+        let data = Object.keys(mountains[0]);
+        console.log(data);
+        generateTableHead(table, data);
+        generateTable(table, mountains);
+    </script>
+</body>
+
+</html>

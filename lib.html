@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <textarea cols="100"   rows="100" id="left"></textarea>
+  <input type="button" id="btn" value="比较">
+  <textarea cols="100"   rows="100" id="right"></textarea>
+  <p id="lp"></p>
+  <script>
+    document.getElementById('btn').addEventListener('click',()=>{
+      var left = document.getElementById('left').value.trim().split('');
+      var right = document.getElementById('right').value.trim().split('');
+      for(let i=0;i<left.length;i++){
+        if(left[i] != right[i]){
+          var a=document.createElement('a');
+          a.innerText=left[i];
+          a.style.backgroundColor='red';
+          document.getElementById('lp').append(a)
+          console.log(i);
+        } else {
+          document.getElementById('lp').append(left[i])
+        }
+      }
+    })
+  </script>
+</body>
+</html>

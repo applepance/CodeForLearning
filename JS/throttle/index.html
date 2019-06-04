@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Throttle And Debounce</title>
+</head>
+
+<body>
+    <div class="row">
+        没有防抖的input
+        <input type="text" id="unDebounce">
+    </div>
+    <div class="row">
+        防抖后的input
+        <input type="text" id="debounce">
+    </div>
+    <script>
+        //异步, 通往服务器的  消耗服务器资源的
+        function ajax(content) {
+            console.log('ajax request ' + content);
+        }
+        let inputa = document.getElementById('unDebounce');
+        let debounceA = document.getElementById('debounce');
+        // search 
+        inputa.addEventListener('keyup', function (e) {
+            ajax(e.target.value);
+        });
+        function debounce(func,delay){
+            // 闭包 抖掉一些不必要的请求
+            return function(args) {
+                // 句柄
+                clearTimeout(func.id);
+                func.id = setTimeout(() => {
+                    func(args);
+                }, delay);
+            }
+        }
+        let debounceAjax = debounce(ajax,500);
+        debounceA.addEventListener('keyup',e => {
+            // 要ajax，但是抖一下，
+            // ajax(e.target.value);
+            // 内部有着ajax的功能
+            debounceAjax(e.target.value)
+        })
+    </script>
+</body>
+
+</html>

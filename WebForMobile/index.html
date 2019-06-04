@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一个涉及微信支付的页面</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.3/style/weui.css">
+    <link rel="stylesheet" href="./style.CSS">
+</head>
+
+<body>
+    <div class="pay-page">
+        <div class="container">
+            <div class="header">
+                <div class="header-title">vip</div>
+                <div class="header-items flex">
+                    <div class="item flex1">
+                        <div class="item-price">
+                            <p class="item-price_month">1个月</p>
+                            <p class="item-price_old">原价19.9元</p>
+                            <p class="item-price_new">现价9元</p>
+                        </div>
+                    </div>
+                    <div class="item flex1 mag">
+                        <div class="item-price">
+                            <p class="item-price_month">3个月</p>
+                            <p class="item-price_old">原价19.9元</p>
+                            <p class="item-price_new">现价9元</p>
+                        </div>
+                    </div>
+                    <div class="item flex1">
+                        <div class="item-price">
+                            <p class="item-price_month">6个月</p>
+                            <p class="item-price_old">原价19.9元</p>
+                            <p class="item-price_new">现价9元</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="candy-pay">
+                    <div class="candy-pay-img"></div>
+                    <div class="candy-pay-content">
+                        <p class="candy-pay-content_title">糖果支付</p>
+                        <p class="candy-pay-content_restAmount">余额：9999</p>
+                    </div>
+                    <div class="candy-pay-button"></div>
+                </div>
+                <div class="wechat-pay">
+                    <div class="wechat-pay-img"></div>
+                    <div class="wechat-pay-content">
+                        <p class="wechat-pay-content_title">微信支付</p>
+                    </div>
+                    <div class="wechat-pay-button"></div>
+                </div>
+            </div>
+            <div class="footer"></div>
+        </div>
+    </div>
+    <script>
+        var oType = document.querySelectorAll('.item-price');
+        // console.log(oType);
+        for (let i = 0; i < oType.length; i++) {
+            oType[i].addEventListener('click', function () {
+                for (let j of oType) {
+                    j.classList.remove('active')
+                }
+                this.classList.add('active')
+            })
+        }
+        var candy_pay = document.querySelector('.candy-pay');
+        var wechat_pay = document.querySelector('.wechat-pay');
+        var candy_pay_button = document.querySelector('.candy-pay-button');
+        var wechat_pay_button = document.querySelector('.wechat-pay-button');
+        candy_pay.addEventListener('click', function () {
+            wechat_pay_button.classList.remove('button-active')
+            candy_pay_button.classList.add('button-active')
+        })
+        wechat_pay.addEventListener('click', function () {
+            candy_pay_button.classList.remove('button-active')
+            wechat_pay_button.classList.add('button-active')
+        })
+    </script>
+</body>
+
+</html>

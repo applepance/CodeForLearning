@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2018年京东校园招聘</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+    <link rel="stylesheet" href="lib/odometer.css">
+    <link rel="stylesheet" href="JDstyle.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="global-container s1">
+            <div class="g-arrow-down" data-attag="arrow-down">
+                <svg width="29px" height="45px" viewBox="0 0 29 45" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g id="Page-1" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g transform="translate(1.000000, 0.000000)" stroke-width="4">
+                            <polyline id="Stroke-1" points="0.3566 30 13.3566 42 26.3566 30"></polyline>
+                            <path d="M13.3566,40 L13.3566,0" id="Stroke-3"></path>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <div class="swiper-slide pages swiper-container swiper-container-vertical" id="pages">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide p1 swiper-slide-active">
+                    <div class="light"></div>
+                    <div class="slogon">这是一家以速度见长的公司</div>
+                </div>
+
+
+                <div class="swiper-slide swiper-slide p2 swiper-slide-active" id="J-swiper-scene-2"
+                    data-friction-x="0.1" data-friction-y="0.1" data-scalar-x="20" data-scalar-y="10">
+
+                    <div class="bg">
+                    </div>
+
+                    <div class="light"
+                        style="transform: translate3d(-9.6px, -5.8px, 0px); transform-style: preserve-3d; backface-visibility: hidden; position: absolute; display: block;">
+                    </div>
+
+                    <div class="dog"
+                        style="transform-style: preserve-3d; backface-visibility: hidden; position: absolute; display: block;">
+                    </div>
+
+                    <div class="text text-top"
+                        style="transform: translate3d(-5.5px, -3.3px, 0px); transform-style: preserve-3d; backface-visibility: hidden; position: absolute; display: block;">
+                        The speed of life beginning</div>
+
+                    <div class="text text-bottom"
+                        style="transform: translate3d(-5.5px, -3.3px, 0px); transform-style: preserve-3d; backface-visibility: hidden; position: absolute; display: block;">
+                        快才拥有可能，这是一家以速度见长的公司</div>
+
+                    <div class="num font-steelfib"></div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+    <script src="lib/odometer.min.js"></script>
+    <script>
+        const p2Num = document.querySelector('.p2 .num');
+        od = new Odometer({
+            el: p2Num,
+            value: 1.618,
+            format: '(,ddd).ddd',
+            theme: 'default'
+        });
+        const swiper = new Swiper('.swiper-container', {
+            direction: 'vertical',
+            on: {
+                slideChangeTransitionEnd: function () {
+                    if(this.activeIndex === 1){
+                        p2Num.innerHTML = 0.004;
+                    }
+                },
+            },
+        })
+    </script>
+</body>
+
+</html>

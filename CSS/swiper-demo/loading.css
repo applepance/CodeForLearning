@@ -1,0 +1,77 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.image {
+    visibility: hidden;
+}
+
+.swiper-container.loading {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.swiper-container.swiper-container-coverflow {
+    padding-top: 2%;
+}
+
+.swiper-button-prev {
+    transform: translateX(50px);
+}
+
+.swiper-button-next {
+    transform: translateX(-50px);
+}
+
+/* 属性选择器 ^开始部分 结束: $ 包含: * */
+
+/* [class$="-next"] {} */
+
+[class^="swiper-button-"] {
+    opacity: 0;
+    visibility: hidden;
+    width: 44px;
+    transition: all .3s ease;
+}
+
+/* 鼠标移过去 */
+
+.swiper-container {
+    height: 28vw;
+    width: 100%;
+}
+
+.swiper-container:hover [class^="swiper-button-"] {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.swiper-slide .content {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 50%;
+    padding-left: 5%;
+    color: #fff;
+}
+
+.swiper-slide .content .title {
+    font-style: 2.6em;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.swiper-slide .content .caption {
+    display: block;
+    font-style: 13px;
+    line-height: 1.4;
+}
+.swiper-pagination-bullet {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+}

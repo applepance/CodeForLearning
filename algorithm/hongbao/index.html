@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="money">
+    <script>
+        // JS是单线程的,事件是异步的,事件处理函数肯定注册在哪里?
+        // 当用户点击时,找出来那个函数并执行,将事件对象交给处理函数
+        document.getElementById("money").addEventListener('keydown',function(event){
+            if (event.keyCode == 13){
+                console.log(typeof this.value);
+                console.log(parseFloat(this.value).toFixed(2));
+            }
+        })
+    </script>
+</body>
+</html>

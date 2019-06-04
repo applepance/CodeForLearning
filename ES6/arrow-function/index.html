@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var f = function() {
+        console.log('function');
+        return 'value';
+    }
+    // 箭头函数
+    var arrow_f = (v) => {
+        console.log('function');
+        return 'value';
+    }
+    var arrow_1 = v => {
+        console.log(v);
+    }
+
+    var arrow_2 = v => v;
+
+    var arrow_3 = function() {
+        return {
+            name: '马冬梅',
+            age: 19
+        }
+    }
+    // 返回一个对象的正确做法
+    var arrow_4 = () => ({name:'马冬梅', age:19})
+</script>
+</body>
+</html>

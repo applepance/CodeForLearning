@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // typeof 搞不定的，Type来搞定
+    var Type = {};
+    for (var i=0, type;type = ['String','Array','Number'][i++];) {
+        // console.log(type,'@');
+        // 立即执行函数是闭包的温床
+        (function(type) { 
+            // type 会找到它定义时的上下文环境中的那个type
+            Type['is' + type] = function(obj) {
+                // console.log(type,'@@@@@@@@@@@@@@');
+                console.log(obj,'??????');
+                return Object.prototype.toString.call(obj) === `[object ${type}]`;
+            }
+        })(type)
+    }
+    // Type.isArry = function() {return true;}
+    // Type.isNum = function() {return true;}
+    // Type.isString = function() {return true;}
+    
+</script>
+</body>
+</html>

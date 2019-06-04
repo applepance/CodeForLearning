@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>霓虹灯</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .text {
+            font-size: 64px;
+            font-weight: bold;
+            text-transform: uppercase;
+            /* 描边 */
+            stroke: #3498bd;
+            stroke-width: 2px;
+            /* 填充 */
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 90 310;
+            stroke-dashoffset: -4;
+            animation: stroke 6s infinite linear;
+        }
+        .text-1 {
+            stroke: #3498bd;
+            text-shadow: 0 0 5px #3498bd;
+            animation-delay: -1.5s;
+        }
+        .text-2 {
+            stroke: #f39c12;
+            text-shadow: 0 0 5px #f39c12;
+            animation-delay: -3s;
+        }
+        .text-3 {
+            stroke: #e74c3c;
+            text-shadow: 0 0 5px #e74c3c;
+            animation-delay: -4.5s;
+        }
+        .text-4 {
+            stroke: #9b59b6;
+            text-shadow: 0 0 5px #9b59b6;
+            animation-delay: -6s;
+        }
+        @keyframes stroke {
+            100%{
+                stroke-dashoffset: -400;
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- <line x1="3" y1="3" x2="48" y2="30"></line>
+        <line x1="90" y1="3" x2="68" y2="30"></line>
+        <rect x="30" y="30" width="80" height="60"/> -->
+
+        <text text-anchor="middle" x="50%" y="50%" class="text text-1">segmentfault.com</text>
+        <text text-anchor="middle" x="50%" y="50%" class="text text-2">segmentfault.com</text>
+        <text text-anchor="middle" x="50%" y="50%" class="text text-3">segmentfault.com</text>
+        <text text-anchor="middle" x="50%" y="50%" class="text text-4">segmentfault.com</text>
+    </svg>
+    <div style="height:100%;border: 1px solid red;"></div>
+</body>
+</html>

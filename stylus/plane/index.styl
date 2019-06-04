@@ -1,0 +1,53 @@
+$bgc = lightyellow
+
+*
+    margin 0
+    padding 0
+html, body
+    height 100%
+    width 100%
+
+.plane-page
+    width 100%
+    height 100%
+    background-color $bgc
+    position relative
+    .plane-wrapper
+        position absolute
+        left 20%
+        top 40%
+        animation undulate 8s linear infinite alternate
+        .plane
+            width 100%
+        .rotate-container
+            position absolute
+            top 51.7003%
+            left 13.1%
+            display inline-block
+            width 27.424%
+            height 14.447%
+            transform-origin center center
+            animation rotating .2s linear infinite reverse
+            .propeller
+                width 100%
+                transform rotateY(-28deg)
+
+@keyframes rotating {
+    0% {
+        transform rotateZ(0)
+    }
+    100% {
+        transform rotateZ(360deg)
+    }
+}
+@keyframes undulate {
+    0%,50%,100%{
+        transform translate3d(0,0,0)
+    }
+    25%{
+        transform translate3d(-10px,-20px,10px)
+    }
+    75%{
+        transform translate3d(14px,18px,0px)
+    }
+}

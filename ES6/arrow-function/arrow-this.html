@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this</title>
+</head>
+<body>
+<script>
+    const lilei = {
+        msg: 'this is 马冬梅'
+    }
+    const hanmeimei = {
+        msg: 'this is 韩梅梅'
+    }
+    function lileiFunc() {
+        // console.log(this.msg);
+        var arrow_lileiFunc = () => {
+            console.log(this.msg);
+        }
+        arrow_lileiFunc();
+    }
+    lileiFunc.call(hanmeimei);
+    // var arrow_lileiFunc = () => {
+    //     console.log('arrow_lileiFunc:',this);
+    //     console.log(this.msg);
+    // }
+    // arrow_lileiFunc.call(lilei);
+
+    var arrow_func_prototype = () => {
+        console.log(111111);
+    }
+</script>
+</body>
+</html>

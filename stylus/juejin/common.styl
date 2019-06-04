@@ -1,0 +1,69 @@
+$fz = 14px
+$bg_color = #f4f5f5
+$text_color = #333333
+$text_color_normal = #666666
+border-radius(num)
+    -webkit-border-radius num
+    -moz-border-radius num
+    -ms-border-radius num
+    -o-border-radius num
+    border-radius num
+
+html
+    font-size $fz
+    font-family -apple-system sans-serif
+    background-color $bg_color
+    text-rendering optimizeLegibility
+    color $text_color
+body
+    font-size $fz
+    margin 0
+    overflow scroll
+    -webkit-overflow-scrolling touch
+a.button
+    border-radius(50%)
+.book-card
+    max-width 720px
+    width 100%
+    margin 0 auto 12px
+    position relative
+    box-shadow 0 1px 2px 0 rgba(0,0,0,.15)
+    background-color #fff
+.book-bought
+    display flex
+    padding 8px 22px 8px 15px
+    border-top 1px solid #ecf0f3
+    cursor pointer
+    align-items center
+    .label
+        color $text_color_normal
+        font-weight 400
+        font-size 16px
+        display inline-flex
+        align-items center
+        flex-shrink 0
+        // img 
+        //     vertical-align middle //过去解决垂直居中
+    .users
+        flex-grow 1
+        height 24px
+        margin-left 24px
+        display flex
+        overflow hidden
+        flex-wrap wrap
+        .user
+            flex-shrink 0
+            border-radius(50%)
+            width 24px
+            height 24px
+            background-size cover
+            background-repeat no-repeat
+            background-position 50%
+            margin-left 10px
+            &:first-child
+                margin-left 0
+
+                
+
+
+

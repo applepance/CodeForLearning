@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>猫动画</title>
+    <style>
+    html, body,.contain {
+        height: 100%;
+        width: 100%;
+    }
+    .contain {
+        background-color:lightgoldenrodyellow;
+    }
+    .cat {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .cat .body {
+        height: 200px;
+        width: 200px;
+        background-repeat: no-repeat;
+        background-image: url(./maoshenti.png);
+        background-position: center;
+    }
+    .cat .tail {
+        height: 200px;
+        width: 200px;
+        background-repeat: no-repeat;
+        background-image: url(./maowei.png);
+        background-position: center;
+        position: absolute;
+        top: -190px;
+        left: -35px;
+        transform-origin: 52% 100%;
+        animation: tail_ani 10s ease infinite;
+    }
+    @keyframes tail_ani {
+        0% {
+            transform: rotateZ(0);
+        }
+        55% {
+            transform: rotateZ(-60deg);
+        }
+        100% {
+            transform: rotateZ(0);
+        }
+    }
+    .cat .hand {
+        height: 200px;
+        width: 200px;
+        background-repeat: no-repeat;
+        background-image: url(./maozhua.png);
+        background-position: center;
+        position: absolute;
+        top: 130px;
+        left: 20px;
+        transform-origin: 52% 21%;
+        animation: hand_ani 3s  infinite;
+        overflow: hidden;
+    }
+    @keyframes hand_ani {
+        0% {
+            transform: rotateZ(0);
+        }
+        35% {
+            transform: rotateZ(25deg);
+        }
+        100% {
+            transform: rotateZ(0);
+        }
+    }
+    .cat .body .yan1 {
+        width: 3px;
+        height: 3px;
+        background-image: url(./maoyan1.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        top: 180px;
+        left: 120px;
+        animation: yan_ani 5s ease infinite;
+    }
+    @keyframes yan_ani {
+        0% {
+            opacity: 1;
+        }
+        2.5% {
+            opacity: 0;
+        }
+        5% {
+            opacity: 1;
+        }
+        7.5% {
+            opacity: 0;
+        }
+        10% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .cat .body .yan2 {
+        width: 3px;
+        height: 3px;
+        background-image: url(./maoyan2.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        top: 185px;
+        left: 130px;
+        animation: yan_ani 5s ease infinite;
+    }
+    .cat .body .zui {
+        width: 10px;
+        height: 10px;
+        background-image: url(./maozui.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        top: 186px;
+        left: 118px;
+    }
+    </style>
+</head>
+<body>
+    <div class="contain">
+        <div class="cat">
+            <div class="body">
+                <div class="yan1"></div>
+                <div class="yan2"></div>
+                <div class="zui"></div>
+            </div>
+            <div class="tail"></div>
+            <div class="hand"></div>
+        </div>
+    </div>
+</body>
+</html>

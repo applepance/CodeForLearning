@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>table</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>name</td>
+                <td>age</td>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+    <script>
+        const tbody = document.getElementById('tbody');
+        // const person = {
+        //     name: '李彬彬',
+        //     age: 22 
+        // }
+        // const str = `<tr>
+        //         <td>${person.name}</td>
+        //         <td>${person.age}</td>
+        //     </tr>`;
+        // tbody.innerHTML = str;
+        // const arr = ['ecut','ecit'];
+        // console.log(arr.join('---'));
+        const people = [{
+            name: '李彬彬',
+            age: 22 
+        },{
+            name: '马冬梅',
+            age: 18 
+        },{
+            name: '马什么梅',
+            age: 18 
+        },{
+            name: '马东什么',
+            age: 18 
+        },{
+            name: '什么东梅',
+            age: 18 
+        }]
+        const str = people.map(person => {return `<tr><td>${person.name}</td><td>${person.age}</td></tr>`;}).join('');
+        tbody.innerHTML = str;
+    </script>
+</body>
+
+</html>

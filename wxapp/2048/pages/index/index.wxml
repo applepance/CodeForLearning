@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='game-body'>
+    <view class='heading'>
+      <text class='title'>2048</text>
+      <view class='scores-container'>
+        <view class='score-container'>
+          {{score}}
+        </view>
+        <view class='best-container'>
+          {{highscore}}
+        </view>
+      </view>
+    </view>
+    <view class='above-game'>
+      <text class='game-intro'>你能等拿到2048吗？</text>
+      <text class='restart-button'>新游戏</text>
+    </view>
+    <view class='game-container'>
+      <view class='grid-container' 
+      bindtouchstart='touchStart'
+      bindtouchmove='touchMove'
+      bindtouchend='touchEnd'>
+        <view class='grid-row' wx:for="{{grids}}" wx:for-item="row" wx:for-index="rowIndex" wx:key="rowIndex">
+          <view class='grid-cell' wx:for="{{row}}" wx:for-item="cell" wx:for-index="cellIndex" wx:key="cellIndex">
+            <view class='tile tile-{{cell.value}}'>
+              <view class='tile-inner'>
+                {{cell.value}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

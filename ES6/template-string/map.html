@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组 map</title>
+</head>
+<body>
+<script>
+const arr = [
+    {name: 'ECUT', good: false},
+    {name: '江财', good: true},
+    {name: '南师', good: true}];
+// for(let i=0;i<arr.length;i++){
+//     console.log(arr[i]);
+// }
+// arr.forEach(function(ele){
+//     console.log(ele);
+// });
+
+// 1. 返回一个新的数组
+// 2. 新数组里面的每一项 都是循环时 回调函数返回的结果
+const newArr = arr.map(function(ele){
+    // if(ele.good === true){
+    //     ele.good = '真好';
+    // }
+    // else {
+    //     ele.good = '爱国荣校';
+    // }
+    ele.good = ele.good ? '真好' : '爱国荣校';
+    return ele;
+});
+const schools = ['ECUT','江财','南师']
+const newSchools = schools.map(school => {
+    return '<li>'+ school +'</li>';
+});
+</script>
+</body>
+</html>

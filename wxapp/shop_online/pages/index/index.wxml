@@ -1,0 +1,17 @@
+<view class='container'>
+  <view class='page__bd'>
+    <!-- 通知 -->
+    <view wx:if="{{noticeList}}" class="notice">
+      <image class="notice_icon" src="/images/notice.png"></image>
+      <swiper wx:if="{{noticeList}}" class="notice_swiper" vertical="true" autoplay="true" circular="true" interval="3000">
+        <navigator wx:for-items="{{noticeList.dataList}}" wx:key="id" url="/pages/notice/show?id={{item.id}}" open-type="navigate">
+          <swiper-item>
+            <view class="notice_itemr">{{item.title}}</view>
+          </swiper-item>
+        </navigator>
+      </swiper>
+    </view>
+    <!-- 分类 -->
+    <!-- 商品列表 -->
+  </view>
+</view>

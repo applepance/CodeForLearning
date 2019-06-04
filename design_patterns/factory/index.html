@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// 接口的概念 类实现了同样的方法，接口，互换类的使用
+// 开个车店 函数表达式 constructor
+var Interface = function(name,methods) {
+
+}
+// function 对象的一种 可以被运行
+// Static 静态方法
+Interface.ensureImplements = function(object) {
+    return true;
+}
+var BicycleShop = function() {};
+
+function Giant() {}
+Giant.prototype.assemble = function() {
+    console.log('组装一下');
+}
+Giant.prototype.wash = function() {
+    console.log('清洗一下');
+}
+function Speedster() {}
+function UC() {}
+
+BicycleShop.prototype = {
+    sellBicycle:function(model){
+        console.log(model);
+        var bicycle;
+        switch(model){
+            case 'Giant':
+                bicycle = new Giant();
+            break;
+            case 'The Speedster':
+                bicycle = new Speedster();
+            break;
+            case 'UC':
+                bicycle = new UC();
+            break;
+        }
+        Interface.ensureImplements('Bicycle',['assemble','wash']);
+        bicycle.assemble();
+        bicycle.wash();
+        return bicycle;
+    }
+}
+
+var californiaCruisers = new BicycleShop();
+var bicycle = californiaCruisers.sellBicycle('Giant');
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div class="box">
+        <p id="title">title</p>
+    </div> -->
+    <script>
+        const divNode = document.createElement('div');
+        divNode.className = 'box';
+        const pNode = document.createElement('p');
+        const title = document.createTextNode('title');
+        pNode.id='title';
+        pNode.appendChild(title);
+        divNode.appendChild(pNode);
+        document.body.appendChild(divNode);
+    </script>
+</body>
+</html>

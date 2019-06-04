@@ -1,0 +1,57 @@
+$bgi = "https://wx3.sinaimg.cn/mw690/4d8b0b03ly1g1ndxgruvnj20j60r4n7e.jpg"
+
+*
+    margin 0
+    padding 0
+
+html, body
+    width 100%
+    height 100%
+.page_font
+    color rgba(0,0,0,.5)
+    font-size .444rem
+
+
+.page
+    width 100%
+    height 100%
+    overflow hidden
+    background-image url($bgi)
+    background-repeat no-repeat
+    background-size auto 100%
+    background-position -71px 0
+    .page_hd
+        width 1.866667rem /* 70/37.5 */
+        height 0.555rem
+        color rgba(0,0,0,.5)
+        font-size .46rem
+        margin 2.96rem auto
+        font-weight bold
+    .page_content_number
+        width 6.96rem
+        display flex
+        margin-left 1.45rem
+        .number
+            width 1.62rem
+            height 1.62rem
+            line-height 1.62rem
+            border-radius 50%
+            border 2px solid #81969c
+            font-size 25px
+            text-align center
+            font-weight 100
+            color #000
+            margin-bottom 0.72rem
+        .numbermiddle, .numberleft
+            margin-right 1.03rem
+    .page_foot
+        display flex
+        padding-top 0.59rem
+        margin-bottom 0.259rem
+        .page_foot_left
+            @extend .page_font
+            margin-left 0.25rem
+            flex 1
+        .page_foot_right
+            @extend .page_font
+            width 1.88rem

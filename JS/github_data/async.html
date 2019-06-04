@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // async 是函数修饰符号
+    function breathe(amout) {
+      return new Promise((resolve, reject) => {
+        try {
+          setTimeout(() => {
+            resolve(`Done for ${amout} ms`);
+          }, amout);
+        }
+        catch (err) {
+          reject(err);
+        }
+      })
+    }
+    function go(name, last) {
+      // 当我们有多种不同类型的或者不同步的异步要解决时，then有点长
+      // const res = await breathe(1000);
+      // console.log(res)
+      // const res1 = await breathe(3000);
+      // console.log(res1)
+      // const res2 = await breathe(1000);
+      // console.log(res2)
+      const res =  breathe(1000);
+      res.then(a=>{
+        console.log(a)
+        return breathe(3000);
+      })
+      .then(a=>{
+        console.log(a)
+        return breathe(1000);
+      })
+      .then(a=>{
+        console.log(a)
+      })
+    }
+    go();
+  </script>
+</body>
+
+</html>

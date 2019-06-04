@@ -1,0 +1,4 @@
+<view class="avatarBox">
+  <image src="{{userInfo.avatarUrl}}" />
+  <view>{{userInfo.nickName}}</view>
+</view>

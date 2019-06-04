@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>送花-代理模式</title>
+    
+</head>
+<body>
+
+        <script>
+            
+            // {} JSON 对象字面量
+            const xwt={
+                name:"徐文韬",
+                hometown:"景德镇乐平",
+                people:"一级变态",
+                single:false,
+                room:"1308",
+                cash:100
+            }
+            // JS 极具表现力的语言
+            // 对象字面量
+            const yjr = {
+                // 属性
+                name:"于金荣",
+                hometown:"东乡",
+                people:"一级恶心怪",
+                single:false,
+                room:"1308",
+                yz:100,
+                hobbies:["脑袋","脑袋","还是脑袋"],
+                cash:500,
+                // 送花  目标
+                // lw 形参
+                get_flower(){
+                    if(this.cash>888)   return "888至尊送花大礼包";
+                    else if(this.cash>499)  return "499情定终生大礼包";
+                    else if(this.cash>99)   return "99朵玫瑰";
+                    else    return "一朵玫瑰";
+                },
+                send_flower(receiver){
+                    receiver.receiveFlower(this,this.get_flower());
+                }
+            }
+            const lw = {
+                name:"老王",
+                receiveFlower(sender,flower){
+                    if(sender.yz>90&&sender.cash>499){
+                        console.log("凭借着"+flower+"->那一夜，他们成长了很多...");
+                        }
+                    else
+                        console.log("凭借着"+flower+"->好人卡+1");
+                },
+                listenGoodMood(fn){
+                    console.log("谁来谁死");
+                    setTimeout(function(){ yjr.yz=100; console.log("我好了"); fn();},3000);
+                }
+            }
+            const yuan = {
+                name:"圆圆姐",
+                people:"恶心的gou",
+                single:true,
+                receiveFlower(sender,flower){
+                    // if(sender.name=="于金荣"){
+                    //     console.log("金荣你在干嘛呀，我想你了");
+                    // }
+                    // else{
+                    //     console.log("...");
+                    // }
+
+
+                    // lw.receiveFlower(sender);
+
+
+                    // 代理对象,实现复杂需求
+                    // eg:监听lw心情,三秒后心情好了再送
+                    lw.listenGoodMood(function(){ lw.receiveFlower(sender,flower)});
+                }
+            }
+        </script>
+    
+</body>
+</html>

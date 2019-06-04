@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #content {
+        display: flex;
+        width: 500px;
+        height: 500px;
+        /* 一行放不下放下面去 */
+        /* flex-wrap: wrap; */
+
+    }
+    #content div {
+        flex-basis: 120px;
+        border: 1px solid rgba(0, 0, 0, .2);
+        height: 200px;
+    }
+    .box {
+        flex-shrink: 1;
+    }
+    .box1 {
+        flex-shrink: 2;
+    }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div class="box" style="background-color:lightcoral;"></div>
+        <div class="box" style="background-color:lightblue;"></div>
+        <div class="box" style="background-color:lightgoldenrodyellow;"></div>
+        <div class="box1" style="background-color:lightgray;"></div>
+        <div class="box1" style="background-color:lightgreen;"></div>
+    </div>
+</body>
+</html>

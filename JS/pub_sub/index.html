@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>订阅发布者模式</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // listener 收听者es callback 发布者document.body
+        // 注册事件 事件回调函数执行
+        // document.body.addEventListener('click',function() {
+        //     alert('点什么点');
+        // },false);
+        // document.body.addEventListener('click',function() {
+        //     alert('点了第二下');
+        // },false);
+        // document.body.addEventListener('click',function() {
+        //     alert('点了第三下');
+        // },false);
+        let yjr = { yz: 120,
+                    name:'yjr' 
+                };// 发布者
+        yjr.brotherList = [];// 存储订阅者的地方
+        yjr.listen = function (fn) {
+            this.brotherList.push(fn);
+        }
+        yjr.trigger = function (msg) {
+            this.brotherList.forEach(element => {
+                element.call(this,msg);
+            });
+            // for(var i=0, fn;fn=yjr.brotherList[i++];) {
+            //     fn();
+            // }
+        }
+        yjr.listen(function (msg) { console.log(`${msg}觉得${this.name}打lol的样子好像cxk`); });
+        yjr.listen(function (msg) { console.log(`${msg}觉得${this.name}恰饭的样子好像cxk`); });
+        yjr.listen(function (msg) { console.log(`${msg}觉得${this.name}打代码的样子好像cxk`); });
+        yjr.listen(function (msg) { console.log(`${msg}觉得${this.name}聊天的样子好像cxk`); });
+        setTimeout(function(){
+            yjr.trigger('脑袋');
+        }, 3000);
+
+        // 先形成他们之间的关系 发布者? 
+
+    </script>
+</body>
+
+</html>

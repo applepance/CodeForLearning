@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="page">
+            <div class="page_hd">
+                <h1 class="page_title">Button</h1>
+                <p class="page_desc">按钮</p>
+            </div>
+            <div class="page_bd">
+                <a href="#" class="weui-btn weui-btn_primary" id='primary'>网页主操作 normal</a>
+                <a href="#" class="weui-btn weui-btn_loading">
+                    <i class="weui-loading"></i>
+                    网页主操作 loading
+                </a>
+                <a href="#" class="weui-btn weui-btn_forTest">只是测试而已啦，要不要这么真啊</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        var oPrimary = document.getElementById('primary')
+        oPrimary.onclick = function () {
+            this.innerHTML = 'Hello World!'
+            this.classList.add('active')
+        }
+    </script>
+</body>
+</html>

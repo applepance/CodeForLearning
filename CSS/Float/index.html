@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header, footer {
+            text-align: center;
+            width: 100%;
+            background-color: #aaa;
+        }
+
+        .content {
+            padding: 0 200px;
+        }
+
+        .mian {
+            float: left;
+            width: 100%;
+            height: 200px;
+            background-color: yellow;
+        }
+
+        .left {
+            width: 200px;
+            height: 200px;
+            background-color: #ddd;
+            float: left;
+            margin-left: -100%;
+            /* position: relative; */
+            transform: translate(-100%, 0%);
+        }
+
+        .right {
+            float: left;
+            margin-left: -200px;
+            /* position: relative; */
+            /* left: 200px; */
+            transform: translate(100%, 0%);
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+        }
+
+        .text {
+            text-align: center;
+            font-size: 50px;
+            line-height: 200px;
+        }
+
+        /* .clearFix {
+            float: left;
+        } */
+        /* .clearFix:after {
+            content: "1111111111111111";
+            clear: both;
+            display: block;
+            // 如果正好有要执行的东西加
+            height: 0;
+            visibility: hidden;
+        } */
+        .clearFix {
+            padding: 0 200px;
+            overflow: auto;
+        }
+        /* .clearFix {
+            display: table;
+        } */
+    </style>
+</head>
+
+<body>
+    <header>圣杯布局</header>
+
+    <div class="content clearFix">
+        <div class="mian text">main</div>
+        <div class="left text">left</div>
+        <div class="right text">right</div>
+        <!-- <div style="clear: left;"></div> -->
+    </div>
+
+    <footer>footer</footer>
+</body>
+
+</html>
