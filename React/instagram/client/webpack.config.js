@@ -43,7 +43,11 @@ module.exports = {
       '@': clientPath,
       '@scss': path.resolve(clientPath, 'assets/style'),
       '@assets': path.resolve(clientPath, 'assets'),
-      '@components': path.resolve(clientPath, 'src')
+      '@components': path.resolve(clientPath, 'src/components'),
+      '@common': path.resolve(clientPath, 'src/common')
     }
+  },
+  devServer: {
+    contentBase
   }
 }

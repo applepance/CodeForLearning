@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>hashchange 实现前端路由</title>
+</head>
+<body>
+  <a href="#top">回到首页</a>
+  <a href="#/">home</a>
+  <a href="#/book">book</a>
+  <a href="#/movie">movie</a>
+  <div id="content"></div>
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+  <script>
+    // hashchange 导航,
+    // 内容显示区域 
+    const Home = { template: '<div>home</div>'}
+    const Book = { template: '<div>book</div>'}
+    const Movie = { template: '<div>movie</div>'}
+    class Router {
+      constructor (options) {
+        this.routes = {} // 前端路由数组
+        this.init()
+        options.forEach(item => {
+          this.route(item.path, () => {
+            document.getElementById('content').innerHTML = item.component
+          })
+        })
+        console.log(this.routes)
+      }
+      // 链接的点击事件
+      route (path, cb) {
+        this.routes[path] = cb
+      }
+      init () {
+        window.addEventListener('load', this.updateView.bind(this), false)
+        window.addEventListener('hashchange', this.updateView.bind(this), false)
+      }
+      updateView () {
+        // console.log('updated')
+        // / 首页 #goods 商品 #detail 详情
+        const hashTag = window.location.hash.slice(1) || '/'
+        this.routes[hashTag] && this.routes[hashTag]()
+      }
+    }
+    new Router([
+      {
+        path: '/',
+        component: 'home'
+      },
+      {
+        path: '/book',
+        component: 'book'
+      },
+      {
+        path: '/movie',
+        component: 'movie'
+      }
+    ])
+  </script>
+</body>
+</html>

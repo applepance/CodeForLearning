@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      scroll-behavior: smooth;
+    }
+
+    .box {
+      height: 5000px;
+      background-color: green;
+      margin-bottom: 20px;
+    }
+
+    .pink {
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- SPA Single Page Application
+  路由来驱动路由级别组件展示
+  后端路由 -->
+  <a href="" id="top"></a>
+  <div class="box pink"></div>
+  <a href="" id="home"></a>
+  <div class="box"></div>
+  <a href="#top">回到顶部</a>
+  <a href="#home">回到首页</a>
+  <script>
+    window.addEventListener('hashchange', function () {
+      console.log('render')
+    })
+  </script>
+</body>
+
+</html>
