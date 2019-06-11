@@ -15,25 +15,13 @@
       <router-link to="#/book">book</router-link>
       <router-link to="#/movie">movie</router-link>
     </p>
-    <router-view/>
+    <router-view />
   </div>
   <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
   <script>
-    Vue.component('router-link', {
-      props: {
-        to: String
-      },
-      template: '<a :href="to"><slot></slot></a>'
-    })
-    Vue.component('router-view', {
-      template: '<div>这就是该切换的部分</div>'
-    })
-    new Vue({
-      el: '#app'
-    })
-    const Home = { template: '<div>home</div>'}
-    const Book = { template: '<div>book</div>'}
-    const Movie = { template: '<div>movie</div>'}
+    const Home = { template: '<div>home</div>' }
+    const Book = { template: '<div>book</div>' }
+    const Movie = { template: '<div>movie</div>' }
     const routes = [
       {
         path: '/',
@@ -46,10 +34,60 @@
       {
         path: '/movie',
         component: Movie
-      },
+      }
     ]
+    class VueRouter {
+      constructor(Vue, options) {
+        this.$options = options;
+        this.routerMap = {};
+        // SPA -> router      
+        this.init();
+        this.createRouterMap(this.$options);
+        this.initComponent(Vue);
+        this.app = new Vue({
+          data: {
+            current: '#/'
+          }
+        })
+      }
+      initComponent(Vue) {
+        Vue.component('router-link', {
+          props: {
+            to: String
+          },
+          template: '<a :href="to"><slot></slot></a>'
+        })
+        const that = this;
+        Vue.component('router-view', {
+          // 模板template 
+          render(h) {
+            const component = that.routerMap[that.app.current];
+            return h(component);
+          }
+        });
+      }
+      createRouterMap(options) {
+        options.routes.forEach(item => {
+          this.routerMap[item.path] = item.component
+        })
+      }
+      init() {
+        window.addEventListener('load', this.onHashChange.bind(this), false);
+        window.addEventListener('hashchange', this.onHashChange.bind(this), false);
+      }
+      onHashChange() {
+        this.app.current = this.getHash();
+        console.log(this.app.current);
+      }
+      getHash() {
+        return window.location.hash.slice(1) || '/';
+      }
+    }
     const router = new VueRouter(Vue, {
       routes
+    })
+    new Vue({
+      el: '#app'
     })
   </script>
 </body>
