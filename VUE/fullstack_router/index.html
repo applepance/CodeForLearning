@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>全栈开发，前后端路由分离，后端在大前端项目中，只做/ 和/api , 其他的交给spa体验好的不刷新，快的前端路由</h1>
+  <div>
+    <a href="javascript:;" data-href="/">home</a>
+    <a href="javascript:;" data-href="/book">book</a>
+    <a href="javascript:;" data-href="/movie">movie</a>
+    <div id="content"></div>
+  </div>
+  <script src="./router.js"></script>
+  <script>
+    const router = new Router([
+      {
+        path: '/',
+        component: 'home'
+      },
+      {
+        path: '/book',
+        component: 'book'
+      },
+      {
+        path: '/movie',
+        component: 'movie'
+      }
+    ])
+  </script>
+</body>
+</html>
