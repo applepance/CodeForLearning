@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数式编程</title>
+</head>
+
+<body>
+  <script>
+    // reduce();
+    // const arr = [1, 2, 3, 4, 5];
+    // const i = arr.reduce((pre, next) => {
+    //   // console.log(pre, next);
+    //   // 第一次 pre 第一项 next 第二项
+    //   // 第二次以及以后 pre 依赖上一次的返回结果
+    //   return next + pre;
+    // })
+    const compose = function (...fns) {
+      // 运行 fns 需要组合的函数
+      // fns = [add5, add5, multiply]
+      return fns.reduce((prev, next) => {
+        return (...args) => prev(next(...args))
+      })
+    }
+    const multiply = (x, y) => x * y;
+    const add5 = (x) => x + 5;
+
+    const res1 = multiply(2, 5);
+    const res2 = add5(res1);
+    console.log(res2);
+
+    const multiplyAndAdd5 = compose(add5, add5, multiply);
+    console.log(multiplyAndAdd5(2, 5));
+
+    const arr = [1, 2, 3, 4, 1, 5];
+    const doarr = arr.reduce((pre, next) => {
+      // if (!pre.find(e => e === next)) pre.push(next);
+      // return pre;
+      if (!pre.includes(next)) pre.push(next);
+      return pre;
+    }, [])
+    console.log(doarr)
+  </script>
+</body>
+
+</html>
