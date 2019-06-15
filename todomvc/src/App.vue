@@ -1,7 +1,7 @@
 <template>
   <div>
     <counter/>
-    <!-- <counterBrother :count="count"/> -->
+    <!-- <counterBrother :i="a"/> -->
   </div>
 </template>
 
@@ -13,7 +13,7 @@ import Counter from './components/Counter';
 export default {
   data() {
     return {
-      // count: 0
+      // a: 1
     }
   },
   components: {

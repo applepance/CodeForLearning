@@ -1,12 +1,12 @@
 <template>
   <div>
-    {{count}}
+    <!-- {{i}} -->
   </div>
 </template>
 
 <script>
 export default {
-  props: ['count']
+  // props: ['i']
 }
 </script>
 
