@@ -16,8 +16,13 @@ const promisify = (func) => {
     })
   }
 }
-fs.readFile('./promisify.html', { encoding: 'utf8' }, (err, data) => {
-  if (!err) {
+// fs.readFile('./promisify.html', { encoding: 'utf8' }, (err, data) => {
+//   if (!err) {
+//     console.log(data)
+//   }
+// })
+const promiseReadFile = promisify(fs.readFile)
+promiseReadFile('./promisify.html', { encoding: 'utf8' })
+  .then((data) => {
     console.log(data)
-  }
-})
+  })
