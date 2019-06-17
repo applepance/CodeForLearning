@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/main",
+    "pages/interrogation/main",
+    "pages/mine/main"   ],
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#999",
+    "backgroundColor": "#fafafa",
+    "selectedColor": "#333",
+    "borderStyle": "white",
+
+    "list": [{
+      "text": "首页",
+      "pagePath": "pages/index/main",
+      "iconPath": "static/tabs/index.png",
+      "selectedIconPath": "static/tabs/index-active.png"
+    }, {
+      "text": "问诊",
+      "pagePath": "pages/interrogation/main",
+      "iconPath": "static/tabs/interrogation.png",
+      "selectedIconPath": "static/tabs/interrogation-active.png"
+    }, {
+      "text": "我的",
+      "pagePath": "pages/mine/main",
+      "iconPath": "static/tabs/mine.png",
+      "selectedIconPath": "static/tabs/mine-active.png"
+    }],
+
+    "items": [{
+      "name": "首页",
+      "pagePath": "pages/index/main",
+      "icon": "static/tabs/index.png",
+      "activeIcon": "static/tabs/index-active.png"
+    }, {
+      "name": "问诊",
+      "pagePath": "pages/interrogation/main",
+      "icon": "static/tabs/interrogation.png",
+      "activeIcon": "static/tabs/interrogation-active.png"
+    }, {
+      "name": "我的",
+      "pagePath": "pages/mine/main",
+      "icon": "static/tabs/mine.png",
+      "activeIcon": "static/tabs/mine-active.png"
+    }],
+    "position": "bottom"
+  }
+}
