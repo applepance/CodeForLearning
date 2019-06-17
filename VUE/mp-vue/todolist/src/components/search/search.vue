@@ -12,7 +12,33 @@
 </template>
 
 <script>
-export default {};
+import QQMapWx from '../../utils/map'
+export default {
+  data() {
+    return {
+      location: '暂时无法获取地址'
+    }
+  },
+  onLoad() {
+    wx.getLocation({
+      type: 'gcj02',
+      success: (res) =>　{
+        const qqMapSdk = new QQMapWx({
+          key: 'DHNBZ-2ZLKK-T7IJJ-AXSQW-WX5L6-A6FJZ'
+        })
+        qqMapSdk.reverseGeocoder({
+          location: {
+            latitude: res.latitude,
+            longitude: res.longitude
+          },
+          success: (res) => {
+            this.location = res.result.formatted_addresses.recommend
+          }
+        })
+      }
+    })
+  }
+};
 </script>
 
 <style lang="stylus" scoped>
