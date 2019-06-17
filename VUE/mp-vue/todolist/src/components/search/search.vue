@@ -1,11 +1,11 @@
 <template>
   <div class="heard">
     <div class="heard-location" @click="searchAddress">
-      <image src="/static/images/location.png" class="heard-location-icon">
+      <image src="/static/images/location.png" class="heard-location-icon" />
       <text class="heard-location-text">{{location}}</text>
     </div>
     <div class="heard-search">
-      <image src="/static/images/search.png" class="heard-search-icon">
+      <image src="/static/images/search.png" class="heard-search-icon" />
       <span class="text">小龙虾</span>
     </div>
   </div>
