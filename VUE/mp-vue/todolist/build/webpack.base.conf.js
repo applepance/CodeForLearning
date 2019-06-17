@@ -60,6 +60,10 @@ let baseWebpackConfig = {
         options: vueLoaderConfig
       },
       {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader!stylus-loader'
+      },
+      {
         test: /\.js$/,
         include: [resolve('src'), resolve('test')],
         use: [
