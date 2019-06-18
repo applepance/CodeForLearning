@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="https://cdn.bootcss.com/underscore.js/1.9.1/underscore-min.js"></script>
+  <script>
+    // String
+    // 1. 转为小写
+    // 2. 拼接一个字符串
+    // 3. split 为一个数组
+    const lowCase = (str) => str.toLowerCase()
+    const add = str => `${str} Hello,How Old Are You?`
+    const splitStr = str => str.split(' ')
+
+    const combineFun = _.compose(splitStr, add, lowCase)
+    console.log(combineFun('HanMEIMEI'))
+
+    function pipe(...args) {
+      return args.reduce((prev, next) => {
+        return (...data) => next(prev(...data))
+      })
+    }
+    const pipeFun = pipe(lowCase, add, splitStr)
+    console.log(pipeFun('HanMEIMEI'))
+  </script>
+</body>
+
+</html>
