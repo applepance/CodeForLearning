@@ -1,9 +1,10 @@
 import React from 'react';
 // eslint-disable-next-line
 import { Layout, Row, Col, Avatar, Input, Menu, Dropdown, Icon, Badge } from 'antd';
-import { Link } from 'react-router-dom';
-// eslint-disable-next-line
-const { Header, Footer, Sider, Content }  = Layout;
+import { Link, Route } from 'react-router-dom';
+import Table from './table/index.jsx'
+
+const { Header, Footer, Sider, Content } = Layout;
 
 function DropMenu() {
   return (
@@ -18,11 +19,33 @@ function DropMenu() {
   )
 }
 
+
+// function Table() {
+//   return (
+//     <div>Table</div>
+//   )
+// }
+
+function Label() {
+  return (
+    <div>Label</div>
+  )
+}
+
+function Post (props) {
+  const { match } = props;
+  return (
+    <div>
+      id: { match.params.id }
+    </div>
+  )
+}
+
 class PageLayout extends React.Component {
   render() {
     return (
       <Layout>
-        <Header style={{color: '#fff', textAlign: 'center', fontWeight: 'bold'}}>
+        <Header style={{ color: '#fff', textAlign: 'center', fontWeight: 'bold' }}>
           <Row>
             <Col span={10}>
               React + Antd 实践
@@ -31,11 +54,11 @@ class PageLayout extends React.Component {
               <Input placeholder="请输入你想要的又拿不到的"></Input>
             </Col>
             <Col span={6}>
-              <Avatar style={{backgroundColor: '#666', marginRight: 20}}
-              icon="user"
+              <Avatar style={{ backgroundColor: '#666', marginRight: 20 }}
+                icon="user"
               ></Avatar>
               <Dropdown overlay={DropMenu}>
-                <span>Hi, 
+                <span>Hi,
                   <Icon type="down"></Icon>
                 </span>
               </Dropdown>
@@ -45,23 +68,30 @@ class PageLayout extends React.Component {
         <Layout>
           <Sider>
             <Menu
-            style={{width: 256, height: '90vh', overflow: 'auto', minWidth: 256}}
-            defaultOpenKeys={['1']}
-            mode="inline"
+              style={{ width: 256, height: '90vh', overflow: 'auto', minWidth: 256 }}
+              defaultOpenKeys={['1']}
+              mode="inline"
             >
               <Menu.SubMenu key="1" title={<span><Icon type="smile-o"></Icon>爱叫啥叫啥的UI组件</span>}>
                 <Menu.Item key="1-1">
-                  <Link to={"table"}>表格</Link>
+                  <Link to={{
+                    pathname: '/table',
+                    search: '?type=all&a=1'
+                  }}>表格</Link>
                 </Menu.Item>
                 <Menu.Item key="1-2">
                   <Link to={"label"}>标签</Link>
                 </Menu.Item>
+                <Menu.Item key="1-3">
+                  <Link to="/post/abcdefg">文章详情</Link>
+                </Menu.Item>
               </Menu.SubMenu>
             </Menu>
           </Sider>
-          <Content>
-            {/* { this.props.children } */}
-            <div style={{color: "#000", backgroundColor: "red" }}><span>Content</span></div>
+          <Content style={{ marginLeft: "5%" }}>
+            <Route path="/table" component={Table}></Route>
+            <Route path="/label" component={Label}></Route>
+            <Route path="/post/:id" component={Post}></Route>
           </Content>
         </Layout>
         <Footer>
