@@ -1,6 +1,6 @@
 <template>
   <div class="navigationBar">
-    <div class="back" v-show="back"></div>
+    <div class="back" v-if="back"></div>
     <div class="title">{{title}}</div>
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
     },
     barBack: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   data() {
@@ -26,11 +26,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .navigationBar {
   position: absolute;
-  background-color: #fff;
+  background-color: white;
   width: 100%;
+  height: 0.5rem;
+  padding-left: 0.3rem;
 }
 .back {
   height: 0.5rem;
@@ -38,10 +40,12 @@ export default {
   border-bottom: 2px solid #000;
   border-left: 2px solid #000;
   display: inline-block;
-  transform: rotateZ(45deg) scale(0.5) translate(0.5rem, -0.1rem);
+  transform: rotateZ(45deg) scale(0.5) translate(0.1rem, -0.1rem);
 }
 .title {
   display: inline;
+  position: absolute;
   margin-left: 0.3rem;
+  bottom: 0;
 }
 </style>

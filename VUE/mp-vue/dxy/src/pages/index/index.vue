@@ -1,19 +1,29 @@
 <template>
   <div class="page">
     <div class="Header">
-      <navigationBar></navigationBar>
+      <navigationBar :barBack="barBack"></navigationBar>
     </div>
     <div class="content">
-      首页
+      <div class="label">
+        <search></search>
+        <!-- <img src="../../../static/tabs/news.png"> -->
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import navigationBar from "../../components/navigationBar/navigationBar";
+import search from "../../components/search/search";
 export default {
+  data() {
+    return {
+      barBack: false
+    }
+  },
   components: {
-    navigationBar
+    navigationBar,
+    search
   }
 };
 </script>
@@ -21,11 +31,21 @@ export default {
 <style scoped>
 .Header {
   position: absolute;
-  margin-top: 0.5rem;
+  margin-top: 0.7rem;
+  box-sizing: border-box;
   width: 100%;
 }
 .content {
   position: absolute;
-  margin-top: 1.3rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+.label {
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
 }
 </style>
