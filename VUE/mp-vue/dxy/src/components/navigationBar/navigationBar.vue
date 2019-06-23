@@ -28,10 +28,8 @@ export default {
 
 <style scoped>
 .navigationBar {
-  position: absolute;
   background-color: white;
   width: 100%;
-  height: 0.5rem;
   padding-left: 0.3rem;
 }
 .back {
@@ -40,12 +38,11 @@ export default {
   border-bottom: 2px solid #000;
   border-left: 2px solid #000;
   display: inline-block;
-  transform: rotateZ(45deg) scale(0.5) translate(0.1rem, -0.1rem);
+  transform: rotateZ(45deg) scale(0.5) translate(0.4rem, -0);
 }
 .title {
   display: inline;
-  position: absolute;
+  position: relative;
   margin-left: 0.3rem;
-  bottom: 0;
 }
 </style>
