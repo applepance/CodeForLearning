@@ -54,7 +54,6 @@ export default {
   width: 100%;
   position: relative;
   display: flex;
-  height: 2.5rem;
 }
 .item {
   flex: 1;

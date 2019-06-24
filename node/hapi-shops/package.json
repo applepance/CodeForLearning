@@ -1,0 +1,21 @@
+{
+  "name": "hapi-shops",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "env2": "^2.2.2",
+    "hapi": "^16.7.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.8.12"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^5.5.0"
+  }
+}

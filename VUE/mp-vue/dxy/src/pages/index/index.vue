@@ -15,6 +15,9 @@
       <div class="label">
         <bigItem></bigItem>
       </div>
+      <div class="label">
+        <items></items>
+      </div>
     </div>
   </div>
 </template>
@@ -23,6 +26,7 @@
 import navigationBar from "../../components/navigationBar/navigationBar";
 import search from "../../components/search/search";
 import bigItem from "../../components/bigItem/bigItem";
+import items from "../../components/items/items";
 export default {
   data() {
     return {
@@ -32,7 +36,8 @@ export default {
   components: {
     navigationBar,
     search,
-    bigItem
+    bigItem,
+    items
   }
 };
 </script>
