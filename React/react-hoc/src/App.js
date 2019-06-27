@@ -1,7 +1,8 @@
 import React from 'react';
 import LoginStatus from './LoginStatus';
 import ShopCart from './ShopCart';
-import ExampleMobx from './exampleMobx/index.jsx'
+import ExampleMobx from './exampleMobx/index.jsx';
+import examplebase from './examplebase/index';
 // import WithLogin from './WithLogin';
 import './App.css';
 
