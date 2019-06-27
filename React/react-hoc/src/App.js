@@ -3,6 +3,7 @@ import LoginStatus from './LoginStatus';
 import ShopCart from './ShopCart';
 import ExampleMobx from './exampleMobx/index.jsx';
 import examplebase from './examplebase/index';
+import ExampleDeBounce from './ExampleDeBounce/index';
 // import WithLogin from './WithLogin';
 import './App.css';
 
@@ -16,6 +17,7 @@ function App() {
       {/* <WithLoginStatus />
       <WithShopCart a="1" b="2"/> */}
       <ExampleMobx />
+      <ExampleDeBounce />
     </>
   )
 }
