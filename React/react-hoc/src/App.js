@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginStatus from './LoginStatus';
 import ShopCart from './ShopCart';
+import ExampleMobx from './exampleMobx/index.jsx'
 // import WithLogin from './WithLogin';
 import './App.css';
 
@@ -13,6 +14,7 @@ function App() {
       <ShopCart />
       {/* <WithLoginStatus />
       <WithShopCart a="1" b="2"/> */}
+      <ExampleMobx />
     </>
   )
 }
