@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function getUser (data) {
+      console.log(data);
+    }
+    // async function jsonp (url, param) {
+    //   var func = document.createElement('script');
+    //   let nodes = '';
+    //   keys(param).forEach(key => {
+    //     key += nodes
+    //     '=' += nodes
+    //     param[key] += nodes
+    //     '&' += nodes
+    //   });
+    //   func.setAttribute('src',`${url}?${1}`)
+    // }
+  </script>
+  <script
+  src="http://localhost:8081/api/user?callback=getUser"
+  >
+  </script>
+</body>
+</html>
