@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
-const url = 'https://weibo.com';
+const baseurl = 'https://weibo.com';
 const newsDir = './new/';
 // https://passport.weibo.com/
 // visitor/visitor?entry=miniblog
@@ -20,7 +20,7 @@ async function getindex(url) {
   });
   const page = await browser.newPage();
   page.setDefaultNavigationTimeout(100001)
-  await page.goto('https://weibo.com' + url, {
+  await page.goto(baseurl + url, {
     timeout: 100000,
     waitUntil: "domcontentloaded"
   });
@@ -45,7 +45,7 @@ async function getindex(url) {
       }
     })
   });
-  // browser.close()
+  browser.close()
   return data;
 }
 
@@ -185,8 +185,8 @@ async function getTopic(url, i, arr) {
       newUrl: url[i].newUrl,
       types: item.map(node => node.item)
     }
-    // browser.close()
     arr.push(data)
+    browser.close()
     return getTopic(url, ++i, arr);
   } else {
     return arr;
@@ -254,12 +254,12 @@ async function getPage(url, i, arr, t, x) {
             commentItems
           }
         });
-        // browser.close()
         data = {
           newUrl: url[i].types[t].list[x].newUrl,
           ...Page
         }
         arr.push(data)
+        browser.close()
         return getPage(url, i, arr, t, ++x);
       } else {
         return getPage(url, i, arr, ++t, 0);
@@ -273,16 +273,18 @@ async function getPage(url, i, arr, t, x) {
 }
 
 getindex('/?category=novelty')
-  .then(res => {
+  .then(async res => {
     saveLocalData('Index', res)
-    let Topic = []
-    getTopic(res, 0, Topic)
-      .then(res => {
-        saveLocalData('Topic', res)
-        let Page = []
-        getPage(res, 0, Page, 0, 0)
-          .then(res => {
-            saveLocalData('Page', res)
-          })
-      })
+    let newTopic = []
+    var topic = await getTopic(res, 0, newTopic)
+    return topic
+  })
+  .then(async res => {
+    saveLocalData('Topic', res)
+    let newPage = []
+    var page = await getPage(res, 0, newPage, 0, 0)
+    return page;
+  })
+  .then(res => {
+    saveLocalData('Page', res)
   })
