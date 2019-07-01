@@ -4,6 +4,9 @@ const koaStatic = require('koa-static');
 const path = require('path');
 const router = require('koa-router')();
 // res.set
+app.use(koaStatic(
+  path.join(__dirname,'./public/')
+))
 app.use(async (ctx, next) => {
   // 允许哪个域名请求 *
   ctx.set('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
@@ -29,7 +32,7 @@ app
   .use(router.routes())
   .use(router.allowedMethods());
 app.listen(8081, () => {
-  console.log('server is running 8080');
+  console.log('server is running 8081');
 });
 
 router.get('/api/user', async (ctx) => {

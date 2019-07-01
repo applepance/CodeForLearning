@@ -27,3 +27,30 @@ jsonp(url, param = {})
 2. 插入一个 script 标签，根据方法名 param 拼接url
 3. 根据 js 的 加载情况 判断 请求成功与否 返回数据
 4. script 标签上面 有事件
+
+## iframe
+可以引入一个跨域的html文件
+
+1. 引入 和 后端 接口同源的一个 iframe
+2. 该 iframe 不存在跨域 可以请求
+3. 和 iframe 通信 postMessage message
+
+## 
+同一个页面的里面的 所有 iframe 共享 window.name
+
+
+## server 后台
+koa-static 映射过 /url
+
+## static 前端
+static live-server
+前后端 通信 fe-iframe 文件 收到后台的结果 middle 后台 static iframe
+
+window.name
+
+1. 上一步一样
+2. iframe 请求 放在一个 共享的 window.name 上面
+3. fe-iframe.html 得到请求的结果
+4. 请求完成之后 跳到一个第三方页面 执行定义在 fe-iframe.html 里的回调
+
+## 代理

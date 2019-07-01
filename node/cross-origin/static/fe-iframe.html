@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <iframe id="page" src="http://localhost:8081/iframe.html" frameborder="0">
+  </iframe>
+  <!-- <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script> -->
+  <script>
+  // name: 123
+  // postMessage
+  window.onload = function() {
+    // 窗口的引用。postMessage（'消息', 'origin'）
+    const page = document.getElementById('page');
+    // iframe 标签引用获取方式 .contentWindow;
+    const iframe = page.contentWindow;
+    iframe.postMessage('123', 'http://localhost:8081');
+    window.addEventListener('message', function(e) {
+      console.log('收到结果', e.data);
+    })
+  }
+  </script>
+</body>
+</html>
