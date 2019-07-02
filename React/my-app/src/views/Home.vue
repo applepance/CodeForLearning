@@ -1,18 +1,27 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    HOME
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import { Action } from 'vuex-class';
 
-export default Vue.extend({
-  name: 'home',
-  components: {
-    HelloWorld,
-  },
-});
+export default class Home extends Vue {
+  private cate: string = 'in_theaters';
+  private active: number = 0;
+  private loading: boolean = true;
+  private movieListData = null;
+  @Action private movieList!: (cate: string) => any;
+
+  private created() {
+    this.movieList(this.cate)
+      .then((res: any) => {
+        this.movieListData = res.subjects;
+        this.loading = false;
+        console.log(res.subjects);
+      })
+  }
+}
 </script>
