@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Switch, Redirect, NavLink } from 'react
 import Recommend from './recommend/Recommend';
 import Ranking from './ranking/Ranking';
 import Search from './search/Search';
+import '../assets/stylus/reset.styl';
+import '../assets/stylus/font.styl';
 import './App.styl';
 
 function App() {
