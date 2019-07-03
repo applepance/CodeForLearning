@@ -1,11 +1,19 @@
 import originalJsonp from 'jsonp';
+import { CODE_SUCCESS } from '../api/config'
 
 const jsonp = (url, data, option) => {
   return new Promise((resolve, reject) => {
     originalJsonp(buildUrl(url, data), option, (err, res) => {
       if (!err) {
-        resolve(res);
+        if (res && res.code === CODE_SUCCESS) {
+          resolve(res);
+        } else {
+          // { code: 1, msg: "接口崩了" }
+          console.log('接口出错了');
+          reject('接口出错了');
+        }
       } else {
+        console.log('接口出错了');
         reject(err);
       }
     })
@@ -17,14 +25,14 @@ const jsonp = (url, data, option) => {
  * @param {*} data {a:1, b:2}
  * baidu.com?a=1&b=2
  */
-function buildUrl (url, data) {
+function buildUrl(url, data) {
   let param = [];
-  for(var k in data) {
+  for (var k in data) {
     // decodeURIComponent
     param.push(`${k}=${encodeURIComponent(data[k])}`);
   }
   let paramStr = param.join('&');
-  if(url.indexOf('?') === -1) {
+  if (url.indexOf('?') === -1) {
     url += "?" + paramStr;
   } else {
     url += "&" + paramStr;

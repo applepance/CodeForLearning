@@ -1,6 +1,8 @@
 export const URL = {
   // 推荐轮播
-  carousel: 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
+  carousel: 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg',
+  // 最新专辑
+  newAlbum: 'https://u.y.qq.com/cgi-bin/musicu.fcg'
 }
 
 export const PARAM = {
