@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <script>
+    let a = {
+      user: '摸鱼猫',
+      fn: function(...nums) {
+        console.log(this.user)
+        console.log(...nums)
+      }
+    }
+    let b = a.fn
+    // b.call(a, 2, 3, 4);
+    // b.apply(a, [2,3,4]);
+    b.bind(a, 1, 2)(3, 4)
+  </script> -->
+  <script>
+    // call() 原理
+    Function.prototype.callFaker = function () {
+      let [thisArg, ...args] = [...arguments]
+      if (!thisArg) {
+        thisArg = typeof window === 'undefined' ? global : window
+      }
+      // this 的指向是当前函数 func
+      thisArg.func = this
+      // 执行函数
+      let result = thisArg.func(...args)
+      // thisArg 上并没有func属性
+      delete thisArg.func
+      return result
+    }
+  </script>
+</body>
+</html>

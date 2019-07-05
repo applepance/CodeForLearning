@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- new 方法原理 -->
+  <script>
+    let _new = function () {
+      let target = {}
+      let [ constructor, ...args ] = [...arguments]
+      target._proto_ = constructor.prototype // 执行原型连接
+      let result = constructor.apply(target, args) // 执行构造函数，将函数的方法添加到创建的空对象上
+      if(result && (typeof(result) === 'object' || typeof(result) === 'function')) {
+        return result;
+      }
+      return target;
+    }
+  </script>
+</body>
+</html>
