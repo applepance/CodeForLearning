@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 深浅拷贝 -->
+  <!-- <script>
+    let obj = {
+      name: "摸鱼猫",
+      age: 21,
+      likes: [ "打电动", "摸鱼" ]
+    }
+    // let obj2 = Object.assign({}, obj)
+    // let obj3 = {...obj}
+    // // console.log(obj2, obj3)
+    // obj.name = '摸鱼'
+    // obj.likes.push('睡觉')
+    // console.log(obj2, obj3);
+
+    // let obj4 = JSON.parse(JSON.stringify(obj))
+    // obj.likes.push("睡觉")
+    // console.log(obj4)
+  </script> -->
+  <script>
+    // 递归拷贝
+    function deepClone(obj, hash = new WeakMap()) {
+      if(obj instanceof RegExp) return new RegExp(obj);
+      if(obj instanceof Date) return new Date(obj);
+      // 如果说不是复杂数据类型的，直接返回
+      if(obj === null || typeof obj !== 'object') {
+        return obj;
+      }
+      if(hash.has(obj)) {
+        return hash.get(obj);
+      }
+      // 如果obj是数组，那么obj.constructor是[Function:Array]
+      // 如果obj是对象，那么obj.constructor是[Function:Object]
+      let t = new obj.constructor();
+      hash.set(obj, t);
+      for(let key in obj) {
+        // 递归
+        if(obj.hasOwnProperty(key)) { // 是否是自己的属性
+          t[key] = deepClone(obj[key], hash);
+        }
+      }
+      return t;
+    }
+  </script>
+</body>
+
+</html>
