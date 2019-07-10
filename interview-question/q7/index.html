@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let a = 'hello',
+      b = 123,
+      c = true,
+      d = undefined,
+      e = null,
+      // ———
+      f = {},
+      g = [],
+      h = function () { };
+    // console.log(typeof(g));
+    // console.log(a instanceof String);
+    function Student (name) {
+      this.name = name
+    }
+    let zz = new Student('zzw');
+    console.log(zz.__proto__);
+    console.log(Student.prototype);
+
+    // instanceof 原理
+    function instanceOf(L, R) {
+      let O = R.prototype;
+      L = L.__proto__;
+      while(true) {
+        if(L === null) {
+          return false;
+        }
+        if(O === L) {
+          return true;
+        }
+        L = L.__proto__;
+      }
+    }
+    console.log(instanceOf([], Array))
+    console.log(Object.prototype.toString.call(()=>{}))
+    console.log(a.__proto__.constructor===String.prototype.constructor)
+  </script>
+</body>
+
+</html>
