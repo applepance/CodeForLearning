@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <v-sidebar/>
     <v-header>
       <i class="icon" slot="left-icon">&#xe692;</i>
       <span slot="content">我的音乐</span>
@@ -17,11 +18,13 @@
 <script>
 import header from '@/components/header'
 import tab from '@/components/tab'
+import sidebar from '@/components/sidebar'
 export default {
   name: 'App',
   components: {
     'v-header': header,
-    'v-tab': tab
+    'v-tab': tab,
+    'v-sidebar': sidebar
   }
 }
 </script>
