@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    (async function () {
+      let a = await 1;
+      let b = await 2;
+    })()
+    function foo () {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(123);
+        },3000)
+      })
+    }
+    _asyncToGenerator(function* () {
+      let a = yield 1;
+      console.log('a', a);
+      let c = yield foo()
+      console.log('c', c);
+      let b = yield 2;
+      console.log('b', b);
+    })
+    function _asyncToGenerator(genFunc) {
+      return new Promise((resolve, reject) => {
+        let g = genFunc();
+        function step (key, value) {
+          let info = {};
+          info = g[key](value);
+          if (info.done) {
+            resolve(info.value);
+          } else {
+            return Promise.resolve(info.value).then(res => {
+              return step('next', res);
+            })
+          }
+        };
+        step('next');
+      })
+    }
+  </script>
+</body>
+
+</html>
