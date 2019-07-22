@@ -1,9 +1,27 @@
 import { createElement, render, renderDOM } from './element';
+import diff from './diff';
+import patch from './patch';
 
-let li = createElement('li', { class: 'item' }, ['我只是一个过客']);
+let virtualDOM2 = createElement('ul', {
+  class: 'list-group'
+}, [
+    createElement('li', { class: 'item' }, ['1']),
+    createElement('li', { class: 'item' }, ['b']),
+    createElement('p', { class: 'page' }, [createElement('a', { class: 'link', href: "https://www.so.com/", target: "_blank" }, ['so'])]),
+    createElement('li', { class: 'item current' }, ['wkk'])
+  ])
 
-let virtualDom = createElement('ul', { class: 'list' }, [li, li, li]);
+let virtualDOM = createElement('ul', {
+  class: 'list-group'
+}, [
+    createElement('li', { class: 'item' }, ['a']),
+    createElement('li', { class: 'item' }, ['b']),
+    createElement('li', { class: 'item' }, ['c'])
+  ])
 
-console.log(virtualDom);
-let el = render(virtualDom);
+let el = render(virtualDOM);
 renderDOM(el, document.getElementById('root'));
+
+let patches = diff(virtualDOM, virtualDOM2);
+console.log(patches);
+patch(el, patches);
