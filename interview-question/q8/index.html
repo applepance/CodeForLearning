@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <ul id="ul-list">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+  </div>
+  <script>
+    window.onload = function() {
+      var oUl = document.getElementById('ul-list');
+      var oLi = oUl.getElementsByTagName('li');
+      // [...oLi].forEach(element => {
+      //   element.onclick = () => {
+      //     console.log(element);
+      //   }
+      // });
+      oUl.addEventListener('click', function(e) {
+        var target = e.target || e.srcElement;
+        console.log(target);
+      })
+    }
+  </script>
+</body>
+</html>
