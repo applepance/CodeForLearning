@@ -14,6 +14,10 @@ import {ResultPage} from 'mand-mobile'
 
 export default {
   name: 'result-page-demo',
+  /* DELETE */
+  title: '自定义图案',
+  titleEnUS: 'Custom pattern',
+  /* DELETE */
   components: {
     [ResultPage.name]: ResultPage,
   },
@@ -22,11 +26,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.md-example-child-result-page-3
-  background-color #fff
+.md-example-child-result-page-0
+  background #ffffff
   position absolute
   top 50%
   left 50%
-  transform translate(-50%, -50%)
-  margin-top -100px
+  transform translate(-50%,-50%)
+  margin-top -100%
 </style>

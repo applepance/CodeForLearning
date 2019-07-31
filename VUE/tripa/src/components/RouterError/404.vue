@@ -11,6 +11,9 @@ import {ResultPage} from 'mand-mobile'
 
 export default {
   name: 'result-page-demo',
+  /* DELETE */
+  title: '404',
+  /* DELETE */
   components: {
     [ResultPage.name]: ResultPage,
   },
@@ -20,10 +23,10 @@ export default {
 
 <style lang="stylus">
 .md-example-child-result-page-0
-  background #FFF
+  background #ffffff
   position absolute
   top 50%
   left 50%
-  transform translate(-50%, -50%)
-  margin-top -100px
+  transform translate(-50%,-50%)
+  margin-top -100%
 </style>
