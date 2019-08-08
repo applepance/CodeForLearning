@@ -1,0 +1,39 @@
+.music-tab
+  display flex
+  position fixed
+  top 84px
+  left 0
+  right 0
+  z-index 100
+  justify-content center
+  align-items center
+  height 40px
+  background-color #fff
+  .tab-item
+    flex 1
+    height 100%
+    display block
+    text-align center
+    cursor pointer
+    text-decoration none
+    .navtxt
+      position relative
+      display inline-block
+      padding 0 5px
+      box-sizing border-box
+      color #333
+      font-size 15px
+      line-height 40px
+  .music-tab-active
+    .navtxt
+      color #dd001b
+    .navtxt:after
+      content ""
+      position absolute
+      left 0
+      bottom -1px
+      z-index 3
+      width 100%
+      height 4px
+      transform scaleY(.5)
+      background #dd001b
