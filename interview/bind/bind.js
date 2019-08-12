@@ -5,7 +5,7 @@ Function.prototype._bind = function (obj) {
   let _self = this;
   let args = [].slice.call(arguments, 1);
   return function () {
-    return _self.apply(obj, ...args, ...[].slice.call(arguments,0))
+    return _self.apply(obj, args.concat([].slice.call(arguments,0)))
   }
 }
 
