@@ -6,19 +6,17 @@ function debounce(fn, interval = 1000) {
       clearTimeout(timerId);
     }
     timerId = setTimeout(() => {
-      fn.apply(this, arguments);
+      fn.apply(fn, arguments);
     }, interval)
   }
 }
 
-var a = debounce((arr) => {
-  console.log(arr)
-}, 1000)
+var b = function () {
+  console.log(this.b)
+}
+b.b = 'b';
 
-a([1, 2, 3, 4])
-a([1, 2])
-a([1, 2, 3, 4])
-a([1, 2, 3, 4])
-a([1, 2, 3, 4])
-a([1, 2, 3, 4])
-a([1, 2, 3, 4])
+var a = debounce(b, 1000)
+a.b = 'a';
+a();
+a();

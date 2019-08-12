@@ -5,13 +5,21 @@ function throttle(fn, time = 250) {
     if (last && now - last < time) {
       clearTimeout(timerId);
       timerId = setTimeout(() => {
-        fn.apply(this, arguments);
+        fn.apply(fn, arguments);
       }, time)
     } else {
       last = now;
-      fn.apply(this, arguments);
+      fn.apply(fn, arguments);
     }
   }
 }
 
-var a = throttle((arr)=>{console.log(arr)})
+var b = function () {console.log(this.b)}
+b.b = 'b'
+var a = throttle(b)
+a();
+a();
+a();
+a();
+a();
+a();
